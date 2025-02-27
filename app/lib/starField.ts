@@ -28,11 +28,28 @@ export const createStarField = (
     z: 0.25 + Math.random() * 0.75,
   }));
 
-  let w = canvas.clientWidth || 800;
-  let h = canvas.clientHeight || 600;
+  let w = 0;
+  let h = 0;
+
+  const resize = () => {
+    const cw = canvas.clientWidth;
+    const ch = canvas.clientHeight;
+    if (!cw || !ch || (cw === w && ch === h)) return;
+    w = cw;
+    h = ch;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = Math.round(cw * dpr);
+    canvas.height = Math.round(ch * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  };
+  resize();
+
+  const ro = new ResizeObserver(resize);
+  ro.observe(canvas);
 
   return {
     draw(progress: number, camX: number, camY: number) {
+      if (!w || !h) return;
       ctx.clearRect(0, 0, w, h);
       ctx.fillStyle = "#ffffff";
       for (const s of stars) {
@@ -41,6 +58,8 @@ export const createStarField = (
         ctx.fillRect(px, py, 1.5, 1.5);
       }
     },
-    dispose() {},
+    dispose() {
+      ro.disconnect();
+    },
   };
 };
