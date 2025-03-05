@@ -17,7 +17,7 @@ export interface StarField {
 
 export const createStarField = (
   canvas: HTMLCanvasElement,
-  { count }: StarFieldOptions
+  { count, intensity, reduced }: StarFieldOptions
 ): StarField | null => {
   const ctx = canvas.getContext("2d");
   if (!ctx) return null;
@@ -51,11 +51,14 @@ export const createStarField = (
     draw(progress: number, camX: number, camY: number) {
       if (!w || !h) return;
       ctx.clearRect(0, 0, w, h);
-      ctx.fillStyle = "#ffffff";
+      ctx.fillStyle = "rgba(255, 255, 255, 0.85)";
+      const driftX = camX * 0.15;
+      const driftY = camY * 0.15;
       for (const s of stars) {
-        const px = (s.x + camX * 0.1 + 1) * 0.5 * w;
-        const py = (s.y + camY * 0.1 + 1) * 0.5 * h;
-        ctx.fillRect(px, py, 1.5, 1.5);
+        const px = (s.x + driftX + 1) * 0.5 * w;
+        const py = (s.y + driftY + 1) * 0.5 * h;
+        const sz = s.z * 1.8;
+        ctx.fillRect(px, py, sz, sz);
       }
     },
     dispose() {
