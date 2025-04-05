@@ -148,3 +148,83 @@ const createStarField = (uniforms) => Fn(([rayDir]) => {
   return starColor.mul(starIntensity).mul(uniforms.starBrightness);
 });
 
+// Procedural nebula clouds - two FBM layers
+const createNebulaField = (uniforms) => Fn(([rayDir]) => {
+  const noisePos1 = rayDir.mul(uniforms.nebula1Scale);
+  const n1 = fbm(noisePos1, float(2.0), float(0.5)).mul(2.0).sub(1.0);
+  const layer1 = clamp(n1.add(uniforms.nebula1Density), float(0.0), float(1.0));
+  const color1 = uniforms.nebula1Color.mul(layer1).mul(uniforms.nebula1Brightness);
+
+  const noisePos2 = rayDir.mul(uniforms.nebula2Scale);
+  const n2 = fbm(noisePos2, float(2.0), float(0.5)).mul(2.0).sub(1.0);
+  const layer2 = clamp(n2.add(uniforms.nebula2Density), float(0.0), float(1.0));
+  const color2 = uniforms.nebula2Color.mul(layer2).mul(uniforms.nebula2Brightness);
+
+  return color1.add(color2);
+});
+
+// Accretion disk color with blackbody temperature, Doppler beaming, and turbulence
+const createAccretionDiskColor = (uniforms) => Fn(([hitR, hitAngle, time, rayDir]) => {
+  const innerR = uniforms.diskInnerRadius;
+  const outerR = uniforms.diskOuterRadius;
+  const normR = clamp(hitR.sub(innerR).div(outerR.sub(innerR)), float(0.0), float(1.0));
+
+  // Temperature profile: T(r) = T_peak × (r_inner / r)^α
+  // Inner disk is hotter (more gravitational energy released)
+  // Standard thin disk model uses α ≈ 0.75
+  const peakTempK = uniforms.diskTemperature.mul(1000.0);
+  const tempK = peakTempK.mul(pow(innerR.div(hitR), uniforms.temperatureFalloff));
+  const diskColor = blackbodyColor(tempK).toVar('diskColor');
+
+  // Doppler beaming: D = 1/(1 - β·cos(θ)), brightness ∝ D³
+  const rotationSign = sign(uniforms.diskRotationSpeed);
+  const velocityDir = vec3(
+    sin(hitAngle).negate().mul(rotationSign),
+    float(0.0),
+    cos(hitAngle).mul(rotationSign)
+  );
+  const velocityMagnitude = float(1.0).div(sqrt(hitR.div(innerR)));
+  const beta = velocityMagnitude.mul(0.3);
+  const cosTheta = dot(velocityDir, rayDir);
+  const dopplerFactor = float(1.0).div(float(1.0).sub(beta.mul(cosTheta)));
+  const dopplerBoost = pow(dopplerFactor, float(3.0).mul(uniforms.dopplerStrength));
+  diskColor.mulAssign(clamp(dopplerBoost, float(0.1), float(5.0)));
+
+  // Edge falloff
+  const edgeFalloff = smoothstep(float(0.0), uniforms.diskEdgeSoftnessInner, normR)
+    .mul(smoothstep(float(1.0), float(1.0).sub(uniforms.diskEdgeSoftnessOuter), normR));
+
+  // Turbulent ring pattern with cyclic time to prevent winding artifacts
+  const ringOpacity = float(1.0).toVar('ringOpacity');
+  const cycleLength = uniforms.turbulenceCycleTime;
+  const cyclicTime = time.mod(cycleLength);
+  const blendFactor = cyclicTime.div(cycleLength);
+
+  // Keplerian rotation: inner regions rotate faster (ω ∝ r^-1.5)
+  const keplerianPhase1 = cyclicTime.mul(uniforms.diskRotationSpeed).div(pow(hitR, float(1.5)));
+  const keplerianPhase2 = cyclicTime.add(cycleLength).mul(uniforms.diskRotationSpeed).div(pow(hitR, float(1.5)));
+  const rotatedAngle1 = hitAngle.add(keplerianPhase1);
+  const rotatedAngle2 = hitAngle.add(keplerianPhase2);
+
+  // Anisotropic noise sampling: radial creates rings, azimuthal creates arcs
+  const noiseCoord1 = vec3(
+    hitR.mul(uniforms.turbulenceScale),
+    cos(rotatedAngle1).div(uniforms.turbulenceStretch.max(0.1)),
+    sin(rotatedAngle1).div(uniforms.turbulenceStretch.max(0.1))
+  );
+  const noiseCoord2 = vec3(
+    hitR.mul(uniforms.turbulenceScale),
+    cos(rotatedAngle2).div(uniforms.turbulenceStretch.max(0.1)),
+    sin(rotatedAngle2).div(uniforms.turbulenceStretch.max(0.1))
+  );
+
+  const turbulence1 = fbm(noiseCoord1, uniforms.turbulenceLacunarity, uniforms.turbulencePersistence);
+  const turbulence2 = fbm(noiseCoord2, uniforms.turbulenceLacunarity, uniforms.turbulencePersistence);
+  const turbulence = mix(turbulence2, turbulence1, blendFactor);
+  ringOpacity.assign(pow(clamp(turbulence, float(0.0), float(1.0)), uniforms.turbulenceSharpness));
+
+  const finalOpacity = ringOpacity.mul(edgeFalloff);
+  const finalColor = diskColor.mul(uniforms.diskBrightness);
+  return vec4(finalColor, finalOpacity);
+});
+
