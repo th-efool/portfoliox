@@ -228,3 +228,83 @@ const createAccretionDiskColor = (uniforms) => Fn(([hitR, hitAngle, time, rayDir
   return vec4(finalColor, finalOpacity);
 });
 
+// Main raymarching shader
+export function createBlackHoleShader(uniforms) {
+  const starField = createStarField(uniforms);
+  const nebulaField = createNebulaField(uniforms);
+  const accretionDiskColor = createAccretionDiskColor(uniforms);
+
+  return Fn(() => {
+    const rs = uniforms.blackHoleMass.mul(2.0); // Schwarzschild radius
+
+    // Camera setup
+    const uv = screenUV.sub(0.5).mul(2.0);
+    const aspect = uniforms.resolution.x.div(uniforms.resolution.y);
+    const screenPos = vec2(uv.x.mul(aspect), uv.y);
+
+    const camPos = uniforms.cameraPosition;
+    const camTarget = uniforms.cameraTarget;
+    const camForward = normalize(camTarget.sub(camPos));
+    // Tilting the up vector rolls the camera around the view axis (the intro
+    // uses it for the fall-in vertigo).
+    const roll = uniforms.cameraRoll;
+    const worldUp = vec3(sin(roll), cos(roll), 0.0);
+    const camRight = normalize(cross(worldUp, camForward));
+    const camUp = cross(camForward, camRight);
+
+    // < 1.0 widens the field of view (fall-in tunnel effect).
+    const fov = uniforms.cameraFovScale;
+    const rayDir = normalize(
+      camForward.mul(fov)
+        .add(camRight.mul(screenPos.x))
+        .add(camUp.mul(screenPos.y))
+    ).toVar('rayDir');
+
+    // Ray state
+    const rayPos = camPos.toVar('rayPos');
+    const prevPos = camPos.toVar('prevPos');
+    const color = vec3(0.0, 0.0, 0.0).toVar('color');
+    const alpha = float(0.0).toVar('alpha');
+    const escaped = float(0.0).toVar('escaped');
+    const captured = float(0.0).toVar('captured');
+
+    const innerR = uniforms.diskInnerRadius;
+    const outerR = uniforms.diskOuterRadius;
+
+    // Bounding sphere: everything visible (disk + meaningful lensing) happens
+    // within this radius. Rays that miss it entirely are pure background and
+    // pay one intersection test instead of the full march; rays that hit it
+    // fast-forward straight to its surface before fine marching begins. This
+    // makes all the empty-space pixels around the hole nearly free.
+    const boundR = outerR.mul(1.15);
+    const midpoint = dot(rayPos, rayDir);
+    const centerDistSq = dot(rayPos, rayPos).sub(boundR.mul(boundR));
+    const discriminant = midpoint.mul(midpoint).sub(centerDistSq);
+    If(discriminant.lessThan(0.0), () => {
+      escaped.assign(1.0);
+    });
+    const tEnter = midpoint.negate().sub(sqrt(discriminant.max(0.0))).max(0.0);
+    rayPos.addAssign(rayDir.mul(tEnter));
+
+    // Raymarching loop
+    Loop(48, () => {
+      If(escaped.greaterThan(0.5).or(captured.greaterThan(0.5)).or(alpha.greaterThan(0.99)), () => {
+        Break();
+      });
+
+      const r = length(rayPos);
+
+      // Captured by black hole
+      If(r.lessThan(rs.mul(1.01)), () => {
+        captured.assign(1.0);
+        Break();
+      });
+
+      // Escaped: back outside the bounding sphere and moving away from the
+      // hole — nothing left to hit. Much cheaper than marching to r > 100.
+      If(r.greaterThan(boundR.mul(1.05)).and(dot(rayPos, rayDir).greaterThan(0.0)), () => {
+        escaped.assign(1.0);
+        Break();
+      });
+
+      // Adaptive step length: fine steps near the hole where light bends hard,
