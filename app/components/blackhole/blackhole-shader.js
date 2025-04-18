@@ -308,3 +308,63 @@ export function createBlackHoleShader(uniforms) {
       });
 
       // Adaptive step length: fine steps near the hole where light bends hard,
+      // coarse steps far away where paths are nearly straight. Cuts the average
+      // iterations per ray dramatically with no visible quality loss.
+      const stepLen = uniforms.stepSize
+        .mul(clamp(r.mul(0.18), float(1.0), float(4.0)))
+        .toVar('stepLen');
+
+      // Gravitational light bending: a = -rs/r² toward center
+      const toCenter = rayPos.negate().div(r);
+      const bendStrength = rs.div(r.mul(r)).mul(stepLen).mul(uniforms.gravitationalLensing);
+      rayDir.addAssign(toCenter.mul(bendStrength));
+      rayDir.assign(normalize(rayDir));
+
+      prevPos.assign(rayPos);
+      rayPos.addAssign(rayDir.mul(stepLen));
+
+      // Disk plane intersection (Y = 0)
+      const crossedPlane = prevPos.y.mul(rayPos.y).lessThan(0.0);
+
+      If(crossedPlane.and(alpha.lessThan(0.99)), () => {
+        const t = prevPos.y.negate().div(rayPos.y.sub(prevPos.y));
+        const hitPos = mix(prevPos, rayPos, t);
+        const hitR = sqrt(hitPos.x.mul(hitPos.x).add(hitPos.z.mul(hitPos.z)));
+        const inDisk = hitR.greaterThan(innerR).and(hitR.lessThan(outerR));
+
+        If(inDisk, () => {
+          const hitAngle = atan(hitPos.z, hitPos.x);
+          const diskResult = accretionDiskColor(hitR, hitAngle, uniforms.time, rayDir);
+
+          // Front-to-back alpha compositing
+          const remainingAlpha = float(1.0).sub(alpha);
+          color.addAssign(diskResult.xyz.mul(diskResult.w).mul(remainingAlpha));
+          alpha.addAssign(remainingAlpha.mul(diskResult.w));
+        });
+      });
+    });
+
+    If(captured.lessThan(0.5), () => {
+      escaped.assign(1.0);
+    });
+
+    // Background for escaped rays
+    If(escaped.greaterThan(0.5).and(alpha.lessThan(0.99)), () => {
+      const bgColor = uniforms.starBackgroundColor.toVar('bgColor');
+
+      If(uniforms.starsEnabled.greaterThan(0.5), () => {
+        bgColor.addAssign(starField(rayDir));
+      });
+
+      If(uniforms.nebulaEnabled.greaterThan(0.5), () => {
+        bgColor.addAssign(nebulaField(rayDir));
+      });
+
+      color.addAssign(bgColor.mul(float(1.0).sub(alpha)));
+    });
+
+    // Gamma correction
+    const finalColor = pow(color, vec3(1.0 / 2.2));
+    return vec4(finalColor, 1.0);
+  })();
+}
