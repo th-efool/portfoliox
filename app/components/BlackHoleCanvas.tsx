@@ -39,7 +39,7 @@ const BLACK_HOLE_CONFIG = {
   turbulenceScale: 1.81,
   turbulenceStretch: 0.75,
   turbulenceSharpness: 7.4,
-  turbulenceCycleTime: 6.0,
+  turbulenceCycleTime: 5.0,
   turbulenceLacunarity: 3,
   turbulencePersistence: 0.8,
   diskEdgeSoftnessInner: 0.18,
