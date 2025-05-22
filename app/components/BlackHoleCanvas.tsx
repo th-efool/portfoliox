@@ -32,7 +32,7 @@ const BLACK_HOLE_CONFIG = {
   diskOuterRadius: 14.5,
   // Cooled from 49.78 so the blackbody disc sits gold rather than white-hot —
   // the same gold the rest of the page is accented in.
-  diskTemperature: 49.78,
+  diskTemperature: 42,
   temperatureFalloff: 5.22,
   diskBrightness: 5,
   diskRotationSpeed: -8.7,
