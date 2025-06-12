@@ -53,4 +53,49 @@ export interface Tuning {
   riseY: number;
   /** A card shows its description only once its cell is at least this big. */
   descMinH: number;
+  descMinW: number;
+  descMaxH: number;
+  descCollapseH: number;
+  /** Card titles shrink in the narrow mosaic cells. */
+  titleNarrowW: number;
+  titleNarrowSize: number;
+  titleSize: number;
+  /** Hero reveal: how far a word / the supporting block rises into place, in px. */
+  wordRise: number;
+  restRise: number;
+  /** How much proper time slows by the bottom of the page (the τ clock). */
+  dilRate: number;
+  /** Stars: fewer on phones, fewer again when motion is reduced. */
+  starCount: number;
+  starCountReduced: number;
+  /**
+   * The comet's position. Desktop measures against the timeline track itself;
+   * the phone measures against the whole (unpinned) section, which reaches the
+   * end of the list a little sooner.
+   */
+  cometFromSection: boolean;
+  cometProbe: number;
+  /** Track padding the comet has to sit inside, and the per-row dot offset. */
+  trackInset: number;
+  rowDotOffset: number;
+  rowFlareRange: number;
+  /** τ readout precision. */
+  tauDecimals: number;
+}
+
+export const DESKTOP: Tuning = {
+  mosaic: [
+    { x: 0, y: 0, w: 0.33, h: 0.58 },
+    { x: 0.34, y: 0, w: 0.32, h: 0.38 },
+    { x: 0.67, y: 0, w: 0.33, h: 0.48 },
+    { x: 0, y: 0.6, w: 0.33, h: 0.4 },
+    { x: 0.34, y: 0.4, w: 0.32, h: 0.6 },
+    { x: 0.67, y: 0.5, w: 0.33, h: 0.5 },
+  ],
+  enterEnd: 0.74,
+  settleWindow: 0.2,
+  deckMaxW: 640,
+  deckWidthFrac: 0.6,
+  deckHeightFrac: 0.95,
+  deckAspect: 0.84,
 };
