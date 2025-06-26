@@ -143,4 +143,33 @@ export const MOBILE: Tuning = {
   riseY: 40,
   descMinH: 330,
   descMinW: 300,
-}
+  descMaxH: 120,
+  descCollapseH: 90,
+  titleNarrowW: 220,
+  titleNarrowSize: 11.5,
+  titleSize: 14,
+  wordRise: 22,
+  restRise: 14,
+  dilRate: 0.85,
+  starCount: 420,
+  starCountReduced: 140,
+  cometFromSection: true,
+  cometProbe: 0.78,
+  trackInset: 12,
+  rowDotOffset: 9 - 6,
+  rowFlareRange: 90,
+  tauDecimals: 1,
+};
+
+/** mm:ss with the given fractional precision — the proper-time readout. */
+export const formatTau = (ms: number, decimals: number) => {
+  const total = ms / 1000;
+  const mins = Math.floor(total / 60);
+  const secs = total % 60;
+  const width = decimals > 0 ? 3 + decimals : 2;
+  return (
+    String(mins).padStart(2, "0") +
+    ":" +
+    secs.toFixed(decimals).padStart(width, "0")
+  );
+};
