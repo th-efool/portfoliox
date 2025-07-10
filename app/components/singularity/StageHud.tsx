@@ -10,7 +10,7 @@ import { chapters } from "@/app/data";
  */
 const StageHud: React.FC = () => (
   <div className="sg-hud">
-    <nav className="sg-hud-stages sg-mono" aria-label="Chapters">
+    <nav className="sg-hud-stages sg-mono" aria-label="Chapters Navigation">
       {chapters.map((c, i) => (
         <a className="sg-stage-link" data-stage href={`#${c.id}`} key={c.id}>
           <span>
