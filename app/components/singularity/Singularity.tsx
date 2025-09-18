@@ -448,6 +448,76 @@ const Singularity: React.FC = () => {
     };
 
     // ---- the stage bar ------------------------------------------------------
+    const updateHud = (st: number, dt: number) => {
+      const depth = clamp(st / geo.docTotal, 0, 1);
+      dil = 1 - T.dilRate * depth;
+      setText(el.rEl, Math.max(0.001, 1 - depth).toFixed(3));
+      setText(el.dilfac, "dt' / dt " + dil.toFixed(2));
+      tau += dt * dil;
+      setText(el.tauEl, formatTau(tau, T.tauDecimals));
+
+      // The probe sits a little above the middle of the screen: a chapter is
+      // "current" once it owns that line, which is where the eye is.
+      let active = -1;
+      const probe = st + geo.vh * 0.55;
+      geo.chaps.forEach((c, i) => {
+        // The last chapter can never be scrolled past, so measuring it like
+        // the others would leave its bar stalled around half full.
+        const span =
+          i === geo.chaps.length - 1 ? Math.max(1, c.h - geo.vh * 0.45) : c.h;
+        const cp = clamp((probe - c.top) / span, 0, 1);
+        if (el.fills[i]) {
+          setStyle(el.fills[i], "width", (cp * 100).toFixed(1) + "%");
+        }
+        if (probe >= c.top && probe < c.top + c.h) active = i;
+        setStyle(
+          el.stages[i],
+          "color",
+          active === i ? "oklch(0.86 0.12 74)" : "var(--sg-faint)"
+        );
+      });
+      setText(el.phase, active < 0 ? "Infalling" : phaseNames[active]);
+    };
+
+    // ---- loop ---------------------------------------------------------------
+    let raf = 0;
+    let last = performance.now();
+
+    const tick = (dt: number) => {
+      if (gpuStatus.current === false) killIntro();
+      const st = window.scrollY;
+      if (!introOff) {
+        runIntro(st);
+        revealHero(st);
+      }
+      updateHud(st, dt);
+      layoutMaze(st);
+      layoutComet(st);
+    };
+
+    const loop = (now: number) => {
+      const dt = Math.min(48, now - last);
+      last = now;
+      tick(dt);
+      raf = requestAnimationFrame(loop);
+    };
+
+    // ---- listeners ----------------------------------------------------------
+    const onMove = (e: MouseEvent) => {
+      ptr.x = e.clientX / window.innerWidth - 0.5;
+      ptr.y = e.clientY / window.innerHeight - 0.5;
+    };
+    const onBreakpoint = () => {
+      T = mq.matches ? MOBILE : DESKTOP;
+      measure();
+    };
+
+    // Content settling (fonts, images) changes section offsets without ever
+    // firing a resize, so watch the root box as well as the window.
+    const ro = new ResizeObserver(measure);
+    ro.observe(root);
+    window.addEventListener("resize", measure);
+    window.addEventListener("mousemove", onMove, { passive: true });
   return null;
 };
 export default Singularity;
