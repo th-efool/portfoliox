@@ -398,3 +398,253 @@
   border-color: oklch(0.82 0.13 72 / 0.4);
   color: var(--sg-gold);
 }
+
+/* --- 02 Accretion disk (projects) ----------------------------------------- */
+
+.sg-ch2 {
+  position: relative;
+  min-height: 420vh;
+  padding: 0 40px;
+}
+
+.sg-ch2-pin {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 48px 0 86px;
+}
+
+.sg-ch2-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  flex: none;
+}
+
+.sg-ch2-head .sg-eyebrow {
+  margin-bottom: 16px;
+}
+
+.sg-ch2-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: rgba(232, 230, 225, 0.5);
+}
+
+.sg-count {
+  color: var(--sg-gold);
+  font-size: 13px;
+}
+
+.sg-ch2-phase {
+  color: rgba(232, 230, 225, 0.4);
+}
+
+/* The cards are absolutely positioned inside this box and driven entirely from
+ * JS (deck sweep → mosaic), so the stage just has to be a known-size frame. */
+.sg-stage {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+}
+
+.sg-card {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--sg-hairline);
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--sg-card);
+  opacity: 0;
+  will-change: transform, opacity;
+  box-shadow: 0 40px 90px -50px rgba(0, 0, 0, 0.9);
+  transition: border-color 0.3s ease;
+}
+
+.sg-card:hover {
+  border-color: oklch(0.82 0.13 72 / 0.6);
+}
+
+.sg-card-media {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.sg-card-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sg-card-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(12, 17, 25, 0.92) 0%,
+    rgba(12, 17, 25, 0.15) 46%,
+    transparent 100%
+  );
+}
+
+.sg-card-tag {
+  position: absolute;
+  top: 14px;
+  left: 16px;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--sg-gold-bright);
+  padding: 5px 9px;
+  border-radius: 5px;
+  background: rgba(5, 7, 12, 0.6);
+  backdrop-filter: blur(6px);
+}
+
+.sg-card-body {
+  flex: none;
+  padding: 16px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.sg-card-title {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -0.018em;
+}
+
+.sg-card-desc {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--sg-dim);
+  overflow: hidden;
+}
+
+.sg-card-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 2px;
+}
+
+.sg-icons {
+  display: flex;
+  align-items: center;
+}
+
+.sg-icon {
+  width: 32px;
+  height: 32px;
+  margin-left: -7px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: var(--sg-bg);
+  display: grid;
+  place-items: center;
+}
+
+.sg-icon img {
+  width: 17px;
+  height: 17px;
+  object-fit: contain;
+}
+
+.sg-card-live {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sg-gold);
+}
+
+/* --- 03 Time dilation (timeline) ------------------------------------------ */
+
+.sg-ch3 {
+  position: relative;
+  padding: 120px 40px 100px;
+}
+
+.sg-ch3-inner {
+  max-width: 1060px;
+  margin: 0 auto;
+}
+
+.sg-ch3 .sg-eyebrow {
+  margin-bottom: 16px;
+}
+
+.sg-ch3-note {
+  margin: 12px 0 0;
+  font-size: 15px;
+  color: rgba(232, 230, 225, 0.6);
+  max-width: 58ch;
+}
+
+.sg-track {
+  position: relative;
+  margin-top: 40px;
+  padding-left: 36px;
+}
+
+.sg-track-rail,
+.sg-track-fill {
+  position: absolute;
+  left: 11px;
+  top: 8px;
+  width: 2px;
+  border-radius: 2px;
+}
+
+.sg-track-rail {
+  bottom: 8px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.sg-track-fill {
+  height: 0;
+  background: linear-gradient(180deg, transparent, var(--sg-gold));
+}
+
+.sg-comet {
+  position: absolute;
+  left: 12px;
+  top: 8px;
+  width: 14px;
+  height: 14px;
+  margin-left: -7px;
+  margin-top: -7px;
+  border-radius: 50%;
+  background: oklch(0.92 0.1 78);
+  box-shadow: 0 0 18px 5px oklch(0.82 0.13 72 / 0.8),
+    0 0 48px 12px oklch(0.82 0.13 72 / 0.3);
+}
+
+.sg-tl-list {
+  display: flex;
+  flex-direction: column;
+}
