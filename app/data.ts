@@ -18,9 +18,9 @@ export const phaseNames = [
 
 export const copy = {
   introDesktop:
-    "I am a Sophomore Systems Engineer at IIT Roorkee, focused on low level graphics, XR simulation, and Quantitative Infrastructure.",
+    "I am a Sophomore Systems Engineer at IIT Roorkee, focused on Multi-Agent Systems, low-level graphics, XR simulation, and Quantitative Infrastructure.",
   introMobile:
-    "Sophomore Systems Engineer at IIT Roorkee, building graphics, XR engines, and Quant infrastructure.",
+    "Sophomore Systems Engineer at IIT Roorkee, building Multi-Agent Systems, XR engines, and Quant infrastructure.",
   timelineNote: "Where I have been and what I shipped there, most recent first.",
 };
 
@@ -39,13 +39,18 @@ export const projects = [
     title: "PullO-Showcase",
     tag: "Systems Gateway",
     img: "/p3.webp",
-    des: "A distributed gateway that securely exposes local Ollama, LM Studio, and llama.cpp instances across teams.",
+    des: "A distributed gateway that securely exposes local Ollama, LM Studio, and llama.cpp instances across teams via unified APIs without port exposure.",
     iconLists: ["/py.svg"],
     link: "https://github.com/th-efool/PullO-Showcase",
   },
 ];
 
 export const timeline = [
+  {
+    when: "Sept 2025 — Present",
+    title: "Research Collaborator — SEED Lab, IIT Roorkee",
+    body: "Developing real time virtual representations of novel smart materials and sensor instrumented medical tools under Prof. Kaushik Parida. Co-authoring 3 academic papers on digital twin teleoperation and haptic medical simulators.",
+  },
   {
     when: "Expected Spring 2029",
     title: "B.Tech Computer Science — IIT Roorkee",
