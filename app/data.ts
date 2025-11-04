@@ -52,6 +52,11 @@ export const timeline = [
     body: "Developing real time virtual representations of novel smart materials and sensor instrumented medical tools under Prof. Kaushik Parida. Co-authoring 3 academic papers on digital twin teleoperation and haptic medical simulators.",
   },
   {
+    when: "Oct 2025 — Jan 2026",
+    title: "Technical Consultant & Developer — Grades Buddy",
+    body: "Engineered a synthetic data generation pipeline using Unity Perception and YOLOv8 to synthesize edge case frames for object detection. Audited client rendering pipelines to slash draw calls for VR frame budgets.",
+  },
+  {
     when: "Expected Spring 2029",
     title: "B.Tech Computer Science — IIT Roorkee",
     body: "Sophomore. Active volunteer for WASH Cell (NSS) and appointed mentor for incoming students in building AR interior design applications.",
