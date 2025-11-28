@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { projects } from "@/app/data";
+import { trackProjectView } from "../GoogleAnalytics";
 
 /**
  * 02 Accretion disk — the projects.
@@ -42,7 +43,7 @@ const ProjectsSection: React.FC = () => (
             href={p.link}
             target="_blank"
             rel="noopener noreferrer"
-            
+            onClick={() => trackProjectView(p.title)}
           >
             <div className="sg-card-media">
               {/* bg.png holds the frame while the screenshot decodes. */}
