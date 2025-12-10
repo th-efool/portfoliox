@@ -518,6 +518,75 @@ const Singularity: React.FC = () => {
     ro.observe(root);
     window.addEventListener("resize", measure);
     window.addEventListener("mousemove", onMove, { passive: true });
-  return null;
+    mq.addEventListener("change", onBreakpoint);
+
+    const reveals = new IntersectionObserver(
+      (entries) =>
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const node = entry.target as HTMLElement;
+          node.style.opacity = "1";
+          node.style.transform = "none";
+          reveals.unobserve(node);
+        }),
+      { threshold: 0.12 }
+    );
+    qa("[data-reveal]").forEach((node) => reveals.observe(node));
+
+    const goTo = (index: number) => (ev: Event) => {
+      ev.preventDefault();
+      const c = geo.chaps[index];
+      if (c) window.scrollTo({ top: c.top - 10, behavior: "smooth" });
+    };
+    const stageClicks = el.stages.map((s, i) => {
+      const handler = goTo(i);
+      s.addEventListener("click", handler);
+      return handler;
+    });
+    const workClick = goTo(1);
+    el.work?.addEventListener("click", workClick);
+
+    measure();
+    // Loaded (or refreshed, or deep-linked) already past the intro: the plunge
+    // is over, so start on the far side of the handoff rather than fading up
+    // from black at a scroll position the visitor never fell to.
+    if (
+      (window.scrollY - geo.introTop) / Math.max(1, geo.introH - geo.vh) >=
+      0.999
+    ) {
+      snapped = true;
+    }
+    raf = requestAnimationFrame(loop);
+
+    return () => {
+      cancelAnimationFrame(raf);
+      ro.disconnect();
+      reveals.disconnect();
+      field?.dispose();
+      window.removeEventListener("resize", measure);
+      window.removeEventListener("mousemove", onMove);
+      mq.removeEventListener("change", onBreakpoint);
+      el.stages.forEach((s, i) =>
+        s.removeEventListener("click", stageClicks[i])
+      );
+      el.work?.removeEventListener("click", workClick);
+    };
+  }, []);
+
+  return (
+    <div className="sg-root" ref={rootRef}>
+      {/* Fixed, and outside the sticky intro, so it keeps covering the screen
+          through the scroll jump that hands off to the site. */}
+      <div className="sg-blackout" data-blackout aria-hidden />
+
+      <IntroSection control={holeControl} onStatus={handleStatus} />
+      <HeroSection />
+      <ProjectsSection />
+      <TimelineSection />
+      <ContactSection />
+      <StageHud />
+    </div>
+  );
 };
+
 export default Singularity;
