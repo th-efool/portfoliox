@@ -99,7 +99,7 @@ export const projects = [
 /** Chapter 05. Roles and builds, most recent first. */
 export const timeline = [
   {
-    when: "Mar 2026 — Present",
+    when: "Mar 2026 — Present (Appointed)",
     title: "Project Lead — Tinkering Lab, IIT Roorkee",
     body: "Leading engineering cohorts across rapid prototyping, embedded systems, and spatial software. Architecting real-time multi-agent moderation pipelines and a GIS rendering plugin for Unity and Unreal Engine.",
   },
