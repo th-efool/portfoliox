@@ -87,7 +87,7 @@ export const projects = [
   },
   {
     id: 6,
-    title: "QuestCameraKit_WIP",
+    title: "QuestCameraKit",
     tag: "XR / Mixed Reality",
     img: "/p2.webp", // Reusing p2
     des: "Template and reference projects demonstrating how to use Meta Quest's Passthrough Camera API for advanced AR/VR vision, tracking, and shader effects.",
