@@ -99,7 +99,7 @@ export const projects = [
 /** Chapter 05. Roles and builds, most recent first. */
 export const timeline = [
   {
-    when: "Mar 2026 — Present (Appointed)",
+    when: "Mar 2026 — Present",
     title: "Project Lead — Tinkering Lab, IIT Roorkee",
     body: "Leading engineering cohorts across rapid prototyping, embedded systems, and spatial software. Architecting real-time multi-agent moderation pipelines and a GIS rendering plugin for Unity and Unreal Engine.",
   },
@@ -109,7 +109,7 @@ export const timeline = [
     body: "Developing real-time virtual representations of novel smart materials and sensor-instrumented medical tools under Prof. Kaushik Parida. Co-authoring 3 academic papers on digital twin teleoperation and haptic medical simulators.",
   },
   {
-    when: "Feb 2025 — Present (Active)",
+    when: "Feb 2025 — Present",
     title: "Software & Game Systems Developer — ArIES",
     body: "Architected a modular quantitative research engine executing deterministic pipelines. Engineered 'UE5-TheHollowPact'—a third-person multiplayer action demo in UE5 with client-side prediction and server reconciliation.",
   },
