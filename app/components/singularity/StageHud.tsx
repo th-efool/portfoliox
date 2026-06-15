@@ -10,7 +10,7 @@ import { chapters } from "@/app/data";
  */
 const StageHud: React.FC = () => (
   <div className="sg-hud">
-    <nav className="sg-hud-stages sg-mono" aria-label="Chapters Navigation">
+    <nav className="sg-hud-stages sg-mono" aria-label="Chapters">
       {chapters.map((c, i) => (
         <a className="sg-stage-link" data-stage href={`#${c.id}`} key={c.id}>
           <span>
@@ -21,7 +21,7 @@ const StageHud: React.FC = () => (
             <span
               className={
                 // 03 is the blue chapter — time dilation, not the disk.
-                "sg-stage-fill"
+                i === 2 ? "sg-stage-fill sg-stage-fill-blue" : "sg-stage-fill"
               }
               data-fill
             />
