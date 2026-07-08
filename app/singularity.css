@@ -648,3 +648,640 @@
   display: flex;
   flex-direction: column;
 }
+
+.sg-tl {
+  position: relative;
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 24px;
+  padding: 0 0 34px;
+  opacity: 0.28;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease, transform 0.6s ease;
+}
+
+.sg-tl-dot {
+  position: absolute;
+  left: -31px;
+  top: 7px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1.5px solid var(--sg-gold);
+  background: var(--sg-bg);
+  transition: background 0.4s ease, box-shadow 0.4s ease;
+}
+
+.sg-tl-when {
+  font-size: 9.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--sg-gold);
+  padding-top: 5px;
+}
+
+.sg-tl-body {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sg-tl-body h3 {
+  margin: 0;
+  font-size: 18.5px;
+  font-weight: 600;
+  letter-spacing: -0.018em;
+  transition: color 0.3s ease;
+}
+
+.sg-tl-body p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(232, 230, 225, 0.6);
+  max-width: 66ch;
+}
+
+/* --- 04 Singularity (contact) --------------------------------------------- */
+
+.sg-ch4 {
+  position: relative;
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  padding: 80px 40px 170px;
+  overflow: hidden;
+}
+
+.sg-ch4-grid {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 118%;
+  max-width: none;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.sg-reveal {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.7s ease, transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sg-ch4-eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--sg-gold);
+}
+
+.sg-ch4-h2 {
+  margin: 0;
+  font-size: clamp(32px, 4.8vw, 62px);
+  font-weight: 600;
+  letter-spacing: -0.032em;
+  line-height: 1.06;
+  max-width: 21ch;
+  text-wrap: balance;
+}
+
+.sg-ch4-p {
+  margin: 0;
+  font-size: 17px;
+  color: var(--sg-dim);
+  max-width: 52ch;
+}
+
+.sg-socials {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.sg-social {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  border: 1px solid var(--sg-hairline);
+  background: rgba(12, 17, 25, 0.7);
+  display: grid;
+  place-items: center;
+  transition: border-color 0.25s ease;
+}
+
+.sg-social:hover {
+  border-color: var(--sg-gold);
+}
+
+.sg-copyright {
+  font-size: 12px;
+  color: var(--sg-faint);
+  margin-top: 14px;
+}
+
+/* --- Stage bar ------------------------------------------------------------ */
+
+.sg-hud {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 30;
+  background: linear-gradient(180deg, rgba(5, 7, 12, 0), rgba(5, 7, 12, 0.94) 42%);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 14px 40px 15px;
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+
+.sg-hud-stages {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  min-width: 0;
+}
+
+.sg-stage-link {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  min-width: 0;
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--sg-faint);
+}
+
+.sg-stage-bar {
+  display: block;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.sg-stage-fill {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: var(--sg-gold);
+}
+
+.sg-stage-fill-blue {
+  background: var(--sg-blue);
+}
+
+.sg-hud-read,
+.sg-hud-metrics {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.sg-hud-read {
+  flex: none;
+  font-size: 9.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(232, 230, 225, 0.42);
+  font-variant-numeric: tabular-nums;
+}
+
+.sg-hud-phase {
+  color: var(--sg-gold);
+}
+
+.sg-hud-r {
+  color: var(--sg-gold);
+}
+
+.sg-hud-tau {
+  color: var(--sg-blue);
+}
+
+.sg-label-short {
+  display: none;
+}
+
+@keyframes sgGlow {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes sgHintBob {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(8px);
+    opacity: 1;
+  }
+}
+
+/* =============================================================================
+ * Phone (mockup 1a). Section heights are the mockup's pixel values divided by
+ * its 874px viewport, so the same number of screens of scroll drives each
+ * chapter on any phone.
+ * ========================================================================== */
+
+@media (max-width: 767px) {
+  .sg-sub {
+    font-size: 6px;
+  }
+
+  .sg-intro {
+    height: 263vh;
+  }
+
+  .sg-intro-titles {
+    padding: 0 24px;
+  }
+
+  .sg-title {
+    font-size: 54px;
+  }
+
+  .sg-title-top {
+    top: 11%;
+    transform: translateY(calc(var(--p) * var(--p) * -103vh))
+      scale(calc(1 + var(--p) * var(--p) * 5));
+  }
+
+  .sg-title-bottom-wrap {
+    bottom: 19%;
+    transform: translateY(calc(var(--p) * var(--p) * 103vh))
+      scale(calc(1 + var(--p) * var(--p) * 5));
+  }
+
+  .sg-hint {
+    bottom: 112px;
+  }
+
+  .sg-hint-label {
+    font-size: 9.5px;
+  }
+
+  .sg-hint-inner {
+    gap: 8px;
+  }
+
+  /* The phone intro is title + hint only — no corner telemetry. */
+  .sg-intro-readout {
+    display: none;
+  }
+
+  .sg-eyebrow {
+    gap: 12px;
+    font-size: 9px;
+  }
+
+  .sg-eyebrow::before {
+    width: 34px;
+  }
+
+  /* 01 — a centred column with the portrait on top, no eyebrow. */
+  .sg-ch1 {
+    height: 217vh;
+  }
+
+  .sg-ch1-pin {
+    padding: 84px 22px 90px;
+  }
+
+  .sg-hero {
+    text-align: center;
+  }
+
+  .sg-hero-eyebrow {
+    display: none;
+  }
+
+  .sg-hero-grid,
+  .sg-hero-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .sg-hero-h1 {
+    font-size: 37px;
+    line-height: 1.08;
+    letter-spacing: -0.028em;
+    max-width: none;
+  }
+
+  .sg-hero-p {
+    margin: 0;
+    font-size: 16px;
+    max-width: 34ch;
+  }
+
+  .sg-hero-actions {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    max-width: 280px;
+    margin: 6px 0 0;
+  }
+
+  .sg-hero-actions .sg-btn {
+    width: 100%;
+    padding: 0 16px;
+  }
+
+  .sg-chips {
+    justify-content: center;
+    gap: 8px;
+    margin-top: 4px;
+    font-size: 8.5px;
+    letter-spacing: 0.12em;
+  }
+
+  .sg-chip {
+    padding: 7px 11px;
+  }
+
+  /* 02 */
+  .sg-ch2 {
+    min-height: 332vh;
+    padding: 0;
+  }
+
+  .sg-ch2-pin {
+    gap: 14px;
+    padding: 76px 20px 94px;
+  }
+
+  .sg-ch2-head {
+    gap: 12px;
+  }
+
+  .sg-ch2-head .sg-eyebrow {
+    margin-bottom: 12px;
+  }
+
+  .sg-h2 {
+    font-size: 25px;
+    letter-spacing: -0.025em;
+    line-height: 1.06;
+  }
+
+  .sg-ch2-meta {
+    gap: 3px;
+    padding-bottom: 3px;
+    font-size: 8.5px;
+  }
+
+  .sg-count {
+    font-size: 12px;
+  }
+
+  .sg-card {
+    border-radius: 14px;
+    box-shadow: 0 30px 70px -45px rgba(0, 0, 0, 0.9);
+  }
+
+  .sg-card-scrim {
+    background: linear-gradient(
+      0deg,
+      rgba(12, 17, 25, 0.9) 0%,
+      rgba(12, 17, 25, 0.12) 48%,
+      transparent 100%
+    );
+  }
+
+  .sg-card-tag {
+    top: 10px;
+    left: 10px;
+    padding: 4px 7px;
+    font-size: 7.5px;
+    letter-spacing: 0.14em;
+  }
+
+  .sg-card-body {
+    padding: 10px 12px 12px;
+    gap: 6px;
+  }
+
+  .sg-card-title {
+    font-size: 14px;
+    letter-spacing: -0.015em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .sg-card-desc {
+    font-size: 12px;
+  }
+
+  /* No room for the stack icons in a mosaic cell this size. */
+  .sg-icons {
+    display: none;
+  }
+
+  .sg-card-foot {
+    margin-top: 0;
+  }
+
+  .sg-card-live {
+    font-size: 8.5px;
+  }
+
+  /* 03 — not pinned on phones; it scrolls normally under the comet. */
+  .sg-ch3 {
+    padding: 64px 20px 60px;
+  }
+
+  .sg-ch3 .sg-h2 {
+    font-size: 27px;
+    line-height: 1.1;
+  }
+
+  .sg-ch3 .sg-eyebrow {
+    margin-bottom: 14px;
+  }
+
+  .sg-ch3-note {
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .sg-track {
+    margin-top: 28px;
+    padding-left: 28px;
+  }
+
+  .sg-track-rail,
+  .sg-track-fill {
+    left: 9px;
+    top: 6px;
+  }
+
+  .sg-track-rail {
+    bottom: 6px;
+  }
+
+  .sg-comet {
+    left: 10px;
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    margin-left: -6px;
+    margin-top: -6px;
+    box-shadow: 0 0 16px 4px oklch(0.82 0.13 72 / 0.8),
+      0 0 40px 10px oklch(0.82 0.13 72 / 0.3);
+  }
+
+  .sg-tl {
+    grid-template-columns: 1fr;
+    gap: 4px;
+    padding-bottom: 26px;
+  }
+
+  .sg-tl-dot {
+    left: -24px;
+    top: 5px;
+    width: 9px;
+    height: 9px;
+  }
+
+  .sg-tl-when {
+    padding-top: 0;
+    font-size: 8.5px;
+    letter-spacing: 0.18em;
+  }
+
+  .sg-tl-body {
+    gap: 4px;
+  }
+
+  .sg-tl-body h3 {
+    font-size: 15.5px;
+    letter-spacing: -0.015em;
+  }
+
+  .sg-tl-body p {
+    font-size: 12.5px;
+  }
+
+  /* 04 */
+  .sg-ch4 {
+    min-height: 87vh;
+    padding: 60px 24px 140px;
+  }
+
+  .sg-ch4-grid {
+    width: 150%;
+    opacity: 0.3;
+  }
+
+  .sg-reveal {
+    gap: 16px;
+  }
+
+  .sg-ch4-eyebrow {
+    font-size: 9px;
+  }
+
+  .sg-ch4-h2 {
+    font-size: 26px;
+    line-height: 1.15;
+    letter-spacing: -0.028em;
+    max-width: 20ch;
+  }
+
+  .sg-ch4-p {
+    font-size: 13.5px;
+    line-height: 1.6;
+    max-width: 34ch;
+  }
+
+  .sg-socials {
+    gap: 10px;
+    margin-top: 4px;
+  }
+
+  .sg-copyright {
+    font-size: 11px;
+    margin-top: 10px;
+  }
+
+  /* Stage bar folds to two rows: chapters, then telemetry. */
+  .sg-hud {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    padding: 10px 16px calc(14px + env(safe-area-inset-bottom));
+  }
+
+  .sg-hud-stages {
+    gap: 9px;
+  }
+
+  .sg-stage-link {
+    gap: 5px;
+    font-size: 8px;
+    letter-spacing: 0.12em;
+  }
+
+  .sg-hud-read {
+    justify-content: space-between;
+    gap: 8px;
+    font-size: 8.5px;
+    letter-spacing: 0.1em;
+  }
+
+  .sg-hud-metrics {
+    gap: 0;
+  }
+
+  .sg-hud-metrics > :not(:first-child)::before {
+    content: "·";
+    padding: 0 6px;
+  }
+
+  /* dt'/dt doesn't fit next to τ at 402px. */
+  .sg-hud-dil {
+    display: none;
+  }
+
+  .sg-label-long {
+    display: none;
+  }
+
+  .sg-label-short {
+    display: inline;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sg-root *,
+  .sg-root *::before,
+  .sg-root *::after {
+    animation: none !important;
+  }
+}
