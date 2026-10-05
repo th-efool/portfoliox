@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="64" height="64">
+  <rect width="128" height="128" rx="20" fill="#0C1322"/>
+  <circle cx="34" cy="40" r="12" fill="#38BDF8"/>
+  <circle cx="94" cy="40" r="12" fill="#818CF8"/>
+  <circle cx="64" cy="94" r="14" fill="#34D399"/>
+  <circle cx="64" cy="52" r="8" fill="#F43F5E"/>
+  <path d="M34 40 L64 52 L94 40 L64 94 Z" stroke="#FFFFFF" stroke-width="3" stroke-opacity="0.4" fill="none"/>
+  <path d="M34 40 L64 94" stroke="#38BDF8" stroke-width="3"/>
+  <path d="M94 40 L64 94" stroke="#818CF8" stroke-width="3"/>
+  <path d="M34 40 L94 40" stroke="#FFFFFF" stroke-width="3" stroke-dasharray="4 3"/>
+  <text x="64" y="118" font-family="monospace" font-size="12" font-weight="bold" fill="#34D399" text-anchor="middle">LangGraph</text>
+</svg>

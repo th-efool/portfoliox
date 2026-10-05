@@ -13,10 +13,10 @@ export const chapters = [
   { id: "ch1", long: "01 Horizon", short: "01 Bio" },
   { id: "ch2", long: "02 Projects", short: "02 Work" },
   { id: "ch3", long: "03 Experience", short: "03 Roles" },
-  { id: "ch4", long: "04 Skills", short: "04 Skills" },
-  { id: "ch5", long: "05 Research", short: "05 Lab" },
-  { id: "ch6", long: "06 Honors", short: "06 Honors" },
-  { id: "ch7", long: "07 Courses", short: "07 Certs" },
+  { id: "ch4", long: "04 Research", short: "04 Lab" },
+  { id: "ch5", long: "05 Honors", short: "05 Honors" },
+  { id: "ch6", long: "06 Courses", short: "06 Certs" },
+  { id: "ch7", long: "07 Skills", short: "07 Skills" },
   { id: "ch8", long: "08 Contact", short: "08 Core" },
 ];
 
@@ -25,10 +25,10 @@ export const phaseNames = [
   "Event horizon",
   "Featured projects",
   "Leadership & roles",
-  "Technical skills",
   "Research work",
   "Honors & achievements",
   "Courses & certifications",
+  "Technical skills",
   "Get in touch",
 ];
 
@@ -263,7 +263,91 @@ export const certifications = [
   },
 ];
 
-/** Chapter 07. Roles and builds, most recent first. */
+export interface TechSkill {
+  name: string;
+  logo: string;
+  tag: string;
+}
+
+export interface SkillCategory {
+  id: string;
+  num: string;
+  title: string;
+  description: string;
+  skills: TechSkill[];
+}
+
+export const skillCategories: SkillCategory[] = [
+  {
+    id: "languages",
+    num: "01",
+    title: "Programming Languages",
+    description: "Core low-level and high-level languages for systems, scripting, and applications.",
+    skills: [
+      { name: "C++", logo: "/cpp.svg", tag: "Systems & Engines" },
+      { name: "Python", logo: "/py.svg", tag: "AI & Distributed Systems" },
+      { name: "TypeScript", logo: "/ts.svg", tag: "Type-Safe Full Stack" },
+      { name: "Go", logo: "/go.svg", tag: "Concurrency & Microservices" },
+      { name: "C#", logo: "/csharp.svg", tag: "Unity & XR Development" },
+      { name: "SQL", logo: "/sql.svg", tag: "Relational Modeling" },
+    ],
+  },
+  {
+    id: "systems-hpc",
+    num: "02",
+    title: "Systems & High-Performance Computing",
+    description: "Hardware acceleration, parallel computation, and containerized runtime environments.",
+    skills: [
+      { name: "CUDA", logo: "/cuda.svg", tag: "GPU Parallel Computing" },
+      { name: "MPI", logo: "/mpi.svg", tag: "Distributed Clusters" },
+      { name: "Linux", logo: "/linux.svg", tag: "POSIX & Kernel Workflows" },
+      { name: "Docker", logo: "/docker.svg", tag: "Containerization" },
+      { name: "CMake", logo: "/cmake.svg", tag: "Native Build Systems" },
+      { name: "Git", logo: "/git.svg", tag: "Version Control" },
+    ],
+  },
+  {
+    id: "ai-ml",
+    num: "03",
+    title: "AI & Multi-Agent Architecture",
+    description: "Stateful agentic graphs, local inference clusters, and transformer model serving.",
+    skills: [
+      { name: "PyTorch", logo: "/pytorch.svg", tag: "Deep Learning & Tensors" },
+      { name: "LangGraph", logo: "/langgraph.svg", tag: "Agentic State Machines" },
+      { name: "Ollama", logo: "/ollama.svg", tag: "Local Model Clusters" },
+      { name: "Hugging Face", logo: "/huggingface.svg", tag: "Transformers Hub" },
+      { name: "FastAPI", logo: "/fastapi.svg", tag: "Asynchronous APIs" },
+    ],
+  },
+  {
+    id: "graphics-xr",
+    num: "04",
+    title: "Graphics & Spatial Simulation",
+    description: "Interactive real-time 3D simulation, custom shader programming, and XR headsets.",
+    skills: [
+      { name: "Unreal Engine 5", logo: "/ue5.svg", tag: "Photoreal XR & C++" },
+      { name: "Unity", logo: "/unity.svg", tag: "Interactive Spatial Computing" },
+      { name: "DirectX 11", logo: "/directx.svg", tag: "HLSL Shaders & Pipelines" },
+      { name: "OpenXR", logo: "/openxr.svg", tag: "Meta Quest & Haptics" },
+      { name: "Three.js", logo: "/three.svg", tag: "WebGL Interactive 3D" },
+    ],
+  },
+  {
+    id: "fullstack-infra",
+    num: "05",
+    title: "Full-Stack & Data Infrastructure",
+    description: "Production web applications, reactive user interfaces, and real-time streaming protocols.",
+    skills: [
+      { name: "Next.js", logo: "/next.svg", tag: "App Router & SSR" },
+      { name: "React", logo: "/re.svg", tag: "Reactive Component Trees" },
+      { name: "Tailwind CSS", logo: "/tail.svg", tag: "Modern Design Tokens" },
+      { name: "PostgreSQL", logo: "/postgres.svg", tag: "Relational Persistence" },
+      { name: "WebSockets", logo: "/websockets.svg", tag: "Bi-directional Real-Time" },
+    ],
+  },
+];
+
+/** Chapter 03. Roles and builds, most recent first. */
 export const timeline = [
   {
     when: "Mar 2026 — Present",

@@ -587,10 +587,10 @@ const Singularity: React.FC = () => {
       <HeroSection />
       <ProjectsSection />
       <TimelineSection />
-      <SkillsSection />
       <ResearchSection />
       <AchievementsSection />
       <CertificationsSection />
+      <SkillsSection />
       <ContactSection />
       <StageHud />
     </div>

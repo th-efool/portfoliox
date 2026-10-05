@@ -816,81 +816,135 @@
   line-height: 1.6;
 }
 
-/* 03 Technical Moat Pillars */
-.sg-pillars-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 22px;
-  margin-top: 48px;
+/* 07 Technical Skills — Verified Arsenal with Tech Logos */
+.sg-skills-categories-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 40px;
 }
 
-.sg-pillar-card {
+.sg-skill-category-card {
   background: var(--sg-card);
   border: 1px solid var(--sg-hairline);
-  border-radius: 16px;
+  border-radius: 18px;
   padding: 26px 24px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  transition: border-color 0.3s ease, transform 0.3s ease;
+  gap: 18px;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
-.sg-pillar-card:hover {
-  border-color: var(--sg-gold);
-  transform: translateY(-3px);
+.sg-skill-category-card:hover {
+  border-color: rgba(255, 255, 255, 0.28);
+  box-shadow: 0 16px 36px -16px rgba(0, 0, 0, 0.7);
 }
 
-.sg-pillar-head {
+.sg-skill-cat-head {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sg-skill-cat-meta {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 12px;
 }
 
-.sg-pillar-num {
-  font-size: 12px;
-  color: var(--sg-gold);
-}
-
-.sg-pillar-badge {
-  font-size: 9px;
+.sg-skill-cat-num {
+  font-size: 11px;
   letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--sg-gold-bright);
-  background: rgba(255, 255, 255, 0.05);
-  padding: 4px 8px;
+  color: var(--sg-gold);
+  background: rgba(255, 200, 50, 0.08);
+  padding: 3px 8px;
   border-radius: 4px;
+  border: 1px solid rgba(255, 200, 50, 0.2);
 }
 
-.sg-pillar-title {
+.sg-skill-cat-title {
   margin: 0;
-  font-size: 19px;
+  font-size: 18.5px;
   font-weight: 600;
   letter-spacing: -0.015em;
-  line-height: 1.25;
+  color: #ffffff;
 }
 
-.sg-pillar-desc {
+.sg-skill-cat-desc {
   margin: 0;
-  font-size: 13.5px;
-  line-height: 1.6;
+  font-size: 13px;
+  line-height: 1.5;
   color: var(--sg-dim);
-  flex: 1;
 }
 
-.sg-pillar-tags {
+.sg-skills-badges-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.sg-tech-card {
   display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  font-size: 9.5px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: rgba(232, 230, 225, 0.55);
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 12px;
+  padding: 10px 14px;
+  transition: all 0.2s ease;
 }
 
-.sg-pillar-tags span {
-  background: rgba(255, 255, 255, 0.04);
-  padding: 3px 7px;
-  border-radius: 4px;
+.sg-tech-card:hover {
+  background: rgba(255, 255, 255, 0.055);
+  border-color: rgba(255, 255, 255, 0.28);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -8px rgba(0, 0, 0, 0.8);
+}
+
+.sg-tech-icon-wrap {
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  border-radius: 8px;
+  background: #0d1117;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: grid;
+  place-items: center;
+  padding: 5px;
+  overflow: hidden;
+}
+
+.sg-tech-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.sg-tech-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: 2px;
+}
+
+.sg-tech-name {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sg-tech-tag {
+  font-size: 10.5px;
+  letter-spacing: 0.03em;
+  color: rgba(232, 230, 225, 0.5);
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* 04 Research Grid */
@@ -1703,12 +1757,12 @@
     min-height: auto;
   }
 
-  .sg-pillars-grid,
+  .sg-skills-badges-grid,
   .sg-research-grid,
   .sg-bento-grid,
   .sg-certs-list {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 14px;
   }
 
   .sg-cert-row {

@@ -5,10 +5,10 @@ import { achievements } from "@/app/data";
  * 05 Honors & Podiums — Competitive achievements and rankings.
  */
 const AchievementsSection: React.FC = () => (
-  <section className="sg-section sg-achievements-sec" data-ch id="ch6">
+  <section className="sg-section sg-achievements-sec" data-ch id="ch5">
     <div className="sg-section-inner">
       <div className="sg-eyebrow sg-mono">
-        06 &nbsp;
+        05 &nbsp;
       </div>
       <h2 className="sg-h2">
         Honors &amp; <span className="sg-accent">Achievements</span>

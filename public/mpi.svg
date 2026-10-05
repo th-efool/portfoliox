@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="64" height="64">
+  <rect width="128" height="128" rx="20" fill="#0E1726"/>
+  <circle cx="64" cy="34" r="14" fill="#38BDF8"/>
+  <circle cx="32" cy="88" r="14" fill="#818CF8"/>
+  <circle cx="96" cy="88" r="14" fill="#818CF8"/>
+  <circle cx="64" cy="68" r="9" fill="#F59E0B"/>
+  <line x1="64" y1="34" x2="32" y2="88" stroke="#38BDF8" stroke-width="4" stroke-dasharray="4 3"/>
+  <line x1="64" y1="34" x2="96" y2="88" stroke="#38BDF8" stroke-width="4" stroke-dasharray="4 3"/>
+  <line x1="32" y1="88" x2="96" y2="88" stroke="#818CF8" stroke-width="4" stroke-dasharray="4 3"/>
+  <line x1="64" y1="34" x2="64" y2="68" stroke="#F59E0B" stroke-width="3"/>
+  <line x1="32" y1="88" x2="64" y2="68" stroke="#F59E0B" stroke-width="3"/>
+  <line x1="96" y1="88" x2="64" y2="68" stroke="#F59E0B" stroke-width="3"/>
+  <text x="64" y="118" font-family="monospace" font-size="15" font-weight="bold" fill="#38BDF8" text-anchor="middle">MPI</text>
+</svg>

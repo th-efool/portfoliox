@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="64" height="64">
+  <rect width="128" height="128" rx="20" fill="#0A0E17"/>
+  <path fill="#0078D7" d="M30 30h22l24 34-24 34H30l24-34z"/>
+  <path fill="#00BCF2" d="M98 30H76L52 64l24 34h22L74 64z"/>
+  <text x="64" y="116" font-family="monospace" font-size="13" font-weight="bold" fill="#00BCF2" text-anchor="middle">DirectX 11</text>
+</svg>
