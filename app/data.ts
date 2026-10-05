@@ -97,66 +97,104 @@ export const projects = [
   }
 ];
 
-export const achievements = [
+export interface AchievementItem {
+  id: string;
+  title: string;
+  event: string;
+  category: "podium" | "olympiad" | "leadership";
+  badge: string;
+  metric: string;
+  metricLabel: string;
+  summary: string;
+  highlight?: string;
+  tags: string[];
+  colSpan?: "wide" | "compact" | "full";
+}
+
+export const achievements: AchievementItem[] = [
   {
     id: "pinch",
-    title: "1st Runner-Up — Pinch Hackathon",
+    title: "1st Runner-Up — Pinch Hackathon 2026",
     event: "Srishti 2026 · IIT Roorkee × Pinch",
-    badge: "🥈 Podiums",
+    category: "podium",
+    badge: "🥈 Hackathon Podium",
     metric: "1st Runner-Up",
+    metricLabel: "National Hackathon",
     summary:
-      "Engineered a 9-agent conference intelligence engine utilizing LangGraph, FastAPI, Groq LLaMA-3.3-70B, and NumPy vector RAG to synthesize conference roadmaps in < 3 minutes.",
-    tags: ["LangGraph", "Multi-Agent", "FastAPI", "Groq LLaMA"],
+      "Engineered a distributed 9-agent conference intelligence engine utilizing LangGraph, FastAPI, Groq LLaMA-3.3-70B, and NumPy in-memory vector RAG to synthesize conference roadmaps in under 3 minutes.",
+    highlight: "< 3 Min Multi-Agent Synthesis",
+    tags: ["LangGraph", "Multi-Agent", "FastAPI", "Groq LLaMA", "In-Memory RAG"],
+    colSpan: "wide",
   },
   {
     id: "pancake",
-    title: "1st Runner-Up — PancakeSwap Hackathon",
+    title: "1st Runner-Up — PancakeSwap Hackathon 2026",
     event: "Srishti 2026 · IIT Roorkee × PancakeSwap",
-    badge: "🥈 Podiums",
+    category: "podium",
+    badge: "🥈 Hackathon Podium",
     metric: "1st Runner-Up",
+    metricLabel: "DeFi / Algorithmic Trading",
     summary:
       "Solo build of a continuous-regime autonomous trading agent centered on 'Intelligent Abstention', continuous hypothesis ranking by expected value (EV), and an autonomous risk veto layer.",
+    highlight: "Autonomous Risk Veto Layer",
     tags: ["TypeScript", "Algorithmic Trading", "State Machine", "Railway"],
+    colSpan: "compact",
   },
   {
     id: "gdai",
     title: "2nd Runner-Up — GDAI Hackathon 2025",
     event: "Game Dev & AI Guild",
-    badge: "🥉 Podiums",
+    category: "podium",
+    badge: "🥉 Game Dev & AI",
     metric: "2nd Runner-Up",
+    metricLabel: "Spatial & Engine Architecture",
     summary:
       "Engineered 'Mirrors & Butterfly Effect' in Unreal Engine 5—a non-Euclidean causality engine and psychological narrative loop exploring dynamic room deformation and time dilation.",
+    highlight: "Non-Euclidean Causality Loop",
     tags: ["Unreal Engine 5", "HLSL Shaders", "Causality Engine", "C++"],
+    colSpan: "compact",
   },
   {
     id: "imo",
     title: "International Mathematics Olympiad (IMO)",
-    event: "Science Olympiad Foundation",
-    badge: "🌐 Global Rank",
+    event: "Science Olympiad Foundation (SOF)",
+    category: "olympiad",
+    badge: "📐 Mathematical Foundation",
     metric: "AIR 477",
+    metricLabel: "Zonal Rank 203",
     summary:
       "All India Rank 477, Zonal Rank 203. Demonstrates proven foundation in combinatorics, discrete mathematics, and algorithmic problem solving.",
+    highlight: "Top National Percentile",
     tags: ["Competitive Math", "SOF", "Zonal Rank 203"],
+    colSpan: "compact",
   },
   {
     id: "nso",
     title: "National Science Olympiad (NSO)",
-    event: "Science Olympiad Foundation",
-    badge: "🌐 Global Rank",
+    event: "Science Olympiad Foundation (SOF)",
+    category: "olympiad",
+    badge: "🔬 Physical Sciences",
     metric: "AIR 375",
+    metricLabel: "Zonal Rank 150",
     summary:
-      "All India Rank 375, Zonal Rank 150 across competitive physics and chemical sciences.",
+      "All India Rank 375, Zonal Rank 150 across competitive physics, thermodynamics, and physical sciences.",
+    highlight: "Top National Percentile",
     tags: ["Physics", "Chemistry", "Zonal Rank 150"],
+    colSpan: "compact",
   },
   {
     id: "sih",
     title: "Student Coordinator — Smart India Hackathon 2025",
-    event: "Ministry of Education, Government of India",
-    badge: "🎖️ Leadership",
+    event: "Ministry of Education & AICTE, Government of India",
+    category: "leadership",
+    badge: "🎖️ National Leadership",
     metric: "Grand Finale",
+    metricLabel: "National Evaluation Centre",
     summary:
-      "Appointed Student Coordinator for the national Grand Finale held at the IIT Roorkee Centre, managing multi-tier logistics and technical evaluation cohorts.",
-    tags: ["Leadership", "Operations", "National Level"],
+      "Appointed Student Coordinator for the national Grand Finale held at the IIT Roorkee Centre. Directed multi-tier evaluation cohorts, cross-institutional infrastructure, and problem-statement logistics for finalist teams nationwide.",
+    highlight: "IIT Roorkee Nodal Centre Operations",
+    tags: ["National Leadership", "Logistics Operations", "Ministry of Education", "IIT Roorkee"],
+    colSpan: "full",
   },
 ];
 
