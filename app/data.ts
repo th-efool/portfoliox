@@ -406,7 +406,7 @@ export interface TimelineItem {
 export const timeline: TimelineItem[] = [
   {
     org: "Tinkering Lab, IIT Roorkee",
-    logo: "/tinkering-lab.svg",
+    logo: "/tinkering-lab.png",
     url: "https://www.linkedin.com/company/18374685/",
     type: "Full-time · 1 yr 9 mos · On-site",
     location: "Roorkee, Uttarakhand, India",
@@ -434,7 +434,7 @@ export const timeline: TimelineItem[] = [
   },
   {
     org: "Soft Electronics And Energy Devices Laboratory (SEED Lab)",
-    logo: "/seed-lab.svg",
+    logo: "/seed-lab.png",
     type: "Research · 1 yr 2 mos · Hybrid",
     location: "Saharanpur, Uttar Pradesh, India",
     when: "Sep 2025 — Present",
@@ -454,7 +454,7 @@ export const timeline: TimelineItem[] = [
   },
   {
     org: "ArIES - Artificial Intelligence and Electronics Section",
-    logo: "/aries.svg",
+    logo: "/aries.png",
     type: "Full-time · 1 yr 9 mos · On-site",
     location: "Roorkee, Uttarakhand, India",
     when: "Feb 2025 — Present",
@@ -474,7 +474,7 @@ export const timeline: TimelineItem[] = [
   },
   {
     org: "Grades Buddy",
-    logo: "/grades-buddy.svg",
+    logo: "/grades-buddy.png",
     type: "Part-time · 4 mos · Remote",
     location: "Remote",
     when: "Oct 2025 — Jan 2026",

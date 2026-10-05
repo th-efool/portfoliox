@@ -710,27 +710,40 @@
 
 .sg-tl-header {
   display: flex;
-  align-items: flex-start;
-  gap: 16px;
+  align-items: center;
+  gap: 20px;
 }
 
 .sg-tl-logo-wrap {
-  width: 50px;
-  height: 50px;
+  width: 72px;
+  height: 72px;
+  min-width: 72px;
   flex: none;
-  border-radius: 12px;
-  background: #0d1117;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  background: #090d14;
+  border: 1.5px solid rgba(255, 255, 255, 0.16);
   display: grid;
   place-items: center;
-  padding: 5px;
   overflow: hidden;
+  box-shadow: 0 10px 28px -6px rgba(0, 0, 0, 0.75), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.sg-tl-card:hover .sg-tl-logo-wrap {
+  border-color: var(--sg-gold);
+  transform: scale(1.04);
+  box-shadow: 0 12px 36px -8px oklch(0.82 0.13 72 / 0.3);
 }
 
 .sg-tl-logo {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.sg-tl-card:hover .sg-tl-logo {
+  transform: scale(1.05);
 }
 
 .sg-tl-header-info {
@@ -738,22 +751,22 @@
   min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
 }
 
 .sg-tl-top-line {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
+  gap: 12px;
   flex-wrap: wrap;
 }
 
 .sg-tl-org {
   margin: 0;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.018em;
   color: #ffffff;
   transition: color 0.3s ease;
 }
@@ -1915,9 +1928,15 @@
     gap: 12px;
   }
 
+  .sg-tl-header {
+    gap: 14px;
+  }
+
   .sg-tl-logo-wrap {
-    width: 42px;
-    height: 42px;
+    width: 56px;
+    height: 56px;
+    min-width: 56px;
+    border-radius: 12px;
   }
 
   .sg-tl-org {
