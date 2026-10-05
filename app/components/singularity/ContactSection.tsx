@@ -4,11 +4,14 @@ import { trackContactClick, trackSocialClick } from "../GoogleAnalytics";
 
 /** 04 Singularity — the end of the fall: contact, links, and r/rs → 0. */
 const ContactSection: React.FC = () => (
-  <section className="sg-ch4" data-ch id="ch6">
+  <section className="sg-ch4" data-ch id="ch8">
     {/* eslint-disable-next-line @next/next/no-img-element */}
     <img className="sg-ch4-grid" src="/footer-grid.svg" alt="" aria-hidden />
 
     <div className="sg-reveal" data-reveal>
+      <div className="sg-eyebrow sg-mono" style={{ justifyContent: "center" }}>
+        08 &nbsp;
+      </div>
 
       <h2 className="sg-ch4-h2">
         Passionate about creating worldwide impact with{" "}

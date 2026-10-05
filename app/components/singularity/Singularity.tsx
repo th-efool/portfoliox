@@ -4,6 +4,10 @@ import React, { useCallback, useEffect, useRef } from "react";
 import IntroSection from "./IntroSection";
 import HeroSection from "./HeroSection";
 import ProjectsSection from "./ProjectsSection";
+import SkillsSection from "./SkillsSection";
+import ResearchSection from "./ResearchSection";
+import AchievementsSection from "./AchievementsSection";
+import CertificationsSection from "./CertificationsSection";
 import TimelineSection from "./TimelineSection";
 import ContactSection from "./ContactSection";
 import StageHud from "./StageHud";
@@ -582,6 +586,10 @@ const Singularity: React.FC = () => {
       <IntroSection control={holeControl} onStatus={handleStatus} />
       <HeroSection />
       <ProjectsSection />
+      <SkillsSection />
+      <ResearchSection />
+      <AchievementsSection />
+      <CertificationsSection />
       <TimelineSection />
       <ContactSection />
       <StageHud />

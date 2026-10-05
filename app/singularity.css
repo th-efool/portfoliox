@@ -229,6 +229,12 @@
 
 /* --- Shared chapter furniture --------------------------------------------- */
 
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
 .sg-eyebrow {
   display: flex;
   align-items: center;
@@ -788,6 +794,438 @@
   margin-top: 14px;
 }
 
+/* --- Custom Expanded Sections (Moat, Research, Honors, Credentials) ------ */
+
+.sg-section {
+  position: relative;
+  min-height: 85vh;
+  padding: 130px 40px 100px;
+}
+
+.sg-section-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.sg-section-note {
+  margin: 14px 0 0;
+  font-size: 15.5px;
+  color: rgba(232, 230, 225, 0.65);
+  max-width: 68ch;
+  line-height: 1.6;
+}
+
+/* 03 Technical Moat Pillars */
+.sg-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 22px;
+  margin-top: 48px;
+}
+
+.sg-pillar-card {
+  background: var(--sg-card);
+  border: 1px solid var(--sg-hairline);
+  border-radius: 16px;
+  padding: 26px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.sg-pillar-card:hover {
+  border-color: var(--sg-gold);
+  transform: translateY(-3px);
+}
+
+.sg-pillar-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sg-pillar-num {
+  font-size: 12px;
+  color: var(--sg-gold);
+}
+
+.sg-pillar-badge {
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sg-gold-bright);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.sg-pillar-title {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+}
+
+.sg-pillar-desc {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--sg-dim);
+  flex: 1;
+}
+
+.sg-pillar-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 9.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(232, 230, 225, 0.55);
+}
+
+.sg-pillar-tags span {
+  background: rgba(255, 255, 255, 0.04);
+  padding: 3px 7px;
+  border-radius: 4px;
+}
+
+/* 04 Research Grid */
+.sg-research-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(460px, 1fr));
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.sg-research-card {
+  background: var(--sg-card);
+  border: 1px solid var(--sg-hairline);
+  border-radius: 18px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.sg-research-card:hover {
+  border-color: var(--sg-gold);
+}
+
+.sg-research-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.sg-research-tag {
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--sg-gold);
+}
+
+.sg-research-status {
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sg-blue);
+  background: rgba(120, 180, 255, 0.08);
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(120, 180, 255, 0.2);
+}
+
+.sg-research-title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.sg-research-advisor {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(232, 230, 225, 0.5);
+}
+
+.sg-research-body {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--sg-dim);
+}
+
+.sg-research-features {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 6px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.sg-res-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(232, 230, 225, 0.7);
+}
+
+.sg-res-bullet {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--sg-gold);
+  flex: none;
+  margin-top: 7px;
+}
+
+/* 05 Honors & Bento Grid */
+.sg-bento-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 22px;
+  margin-top: 48px;
+}
+
+.sg-bento-card {
+  background: var(--sg-card);
+  border: 1px solid var(--sg-hairline);
+  border-radius: 16px;
+  padding: 26px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.sg-bento-card:hover {
+  border-color: var(--sg-gold);
+  transform: translateY(-3px);
+}
+
+.sg-bento-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sg-bento-badge {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sg-gold);
+}
+
+.sg-bento-metric {
+  font-size: 11px;
+  font-weight: 600;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--sg-hairline);
+}
+
+.sg-bento-title {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+}
+
+.sg-bento-event {
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(232, 230, 225, 0.5);
+}
+
+.sg-bento-summary {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--sg-dim);
+  flex: 1;
+}
+
+.sg-bento-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+  font-size: 9.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(232, 230, 225, 0.55);
+}
+
+.sg-bento-tag {
+  background: rgba(255, 255, 255, 0.04);
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+/* 06 Credentials & HPC Section */
+.sg-featured-cert {
+  background: linear-gradient(135deg, rgba(20, 25, 38, 0.8) 0%, rgba(12, 17, 25, 0.95) 100%);
+  border: 1px solid var(--sg-gold);
+  border-radius: 18px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 44px;
+  box-shadow: 0 20px 60px -20px oklch(0.82 0.13 72 / 0.15);
+}
+
+.sg-featured-cert-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.sg-featured-badge {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--sg-gold);
+  background: rgba(255, 200, 50, 0.08);
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--sg-gold);
+}
+
+.sg-featured-issuer {
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(232, 230, 225, 0.6);
+}
+
+.sg-featured-cert-title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.sg-featured-cert-desc {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--sg-dim);
+}
+
+.sg-featured-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sg-cert-id {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(232, 230, 225, 0.5);
+}
+
+.sg-cert-id span {
+  color: var(--sg-gold);
+}
+
+.sg-skill-pill {
+  font-size: 9.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(232, 230, 225, 0.65);
+  padding: 4px 9px;
+  border-radius: 5px;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+.sg-skill-pill-gold {
+  background: rgba(255, 200, 50, 0.1);
+  color: var(--sg-gold);
+  border: 1px solid rgba(255, 200, 50, 0.25);
+}
+
+.sg-certs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.sg-cert-card {
+  background: var(--sg-card);
+  border: 1px solid var(--sg-hairline);
+  border-radius: 14px;
+  padding: 22px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: border-color 0.25s ease;
+}
+
+.sg-cert-card:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.sg-cert-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 9.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(232, 230, 225, 0.5);
+}
+
+.sg-cert-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.012em;
+  line-height: 1.3;
+}
+
+.sg-cert-desc {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--sg-dim);
+  flex: 1;
+}
+
+.sg-cert-footer {
+  margin-top: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
 /* --- Stage bar ------------------------------------------------------------ */
 
 .sg-hud {
@@ -808,8 +1246,8 @@
 .sg-hud-stages {
   flex: 1;
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 8px;
   min-width: 0;
 }
 
@@ -1239,7 +1677,9 @@
   }
 
   .sg-hud-stages {
-    gap: 9px;
+    display: grid;
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+    gap: 4px;
   }
 
   .sg-stage-link {
@@ -1275,6 +1715,32 @@
 
   .sg-label-short {
     display: inline;
+  }
+
+  .sg-section {
+    padding: 72px 20px 60px;
+    min-height: auto;
+  }
+
+  .sg-pillars-grid,
+  .sg-research-grid,
+  .sg-bento-grid,
+  .sg-certs-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .sg-featured-cert {
+    padding: 24px 18px;
+  }
+
+  .sg-featured-cert-title {
+    font-size: 19px;
+  }
+
+  .sg-research-card,
+  .sg-bento-card {
+    padding: 22px 18px;
   }
 }
 

@@ -67,11 +67,11 @@ const HeroSection: React.FC = () => (
 
             <div className="sg-chips sg-mono" data-hero-rest>
               <span className="sg-chip sg-chip-gold">
-                Open to SWE / ML internships
+                Open to Systems / Distributed AI / Quant
               </span>
               <span className="sg-chip">
-                <span className="sg-label-long">IIT Roorkee · Computer Science</span>
-                <span className="sg-label-short">IITR · CS</span>
+                <span className="sg-label-long">IIT Roorkee · Pre-final Year CS</span>
+                <span className="sg-label-short">IITR · Pre-final Year</span>
               </span>
             </div>
           </div>

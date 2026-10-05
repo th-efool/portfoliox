@@ -1,32 +1,85 @@
 import React from "react";
 
+/**
+ * 04 Research — SEED Lab Cyber-Physical Twins and In-Vitro Immunology.
+ */
 const ResearchSection: React.FC = () => (
-  <section className="sg-ch3" data-ch id="ch4">
-    <div className="sg-ch3-inner">
-      <div className="sg-eyebrow sg-eyebrow-blue sg-mono">
+  <section className="sg-section sg-research-sec" data-ch id="ch4">
+    <div className="sg-section-inner">
+      <div className="sg-eyebrow sg-mono">
         04 &nbsp;
       </div>
       <h2 className="sg-h2">
-        Lab <span className="sg-accent">Research</span>
+        Cyber-Physical &amp; Bio <span className="sg-accent">Research</span>
       </h2>
-      <p className="sg-ch3-note">Academic pursuits traversing physical biology and digital simulation.</p>
+      <p className="sg-section-note">
+        Faculty-supervised academic laboratories spanning real-time tactile digital twins and cellular immunology.
+      </p>
 
-      <div className="sg-tl-list" style={{ marginTop: '3rem' }}>
-        <div className="sg-tl" data-reveal>
-          <span className="sg-tl-dot sg-tl-dot-active" aria-hidden style={{ background: 'oklch(0.88 0.12 74)' }} />
-          <div className="sg-tl-when sg-mono">In-Vitro Immunology</div>
-          <div className="sg-tl-body">
-            <h3>Peripheral Blood Monocyte Derived Macrophages</h3>
-            <p>Collaborated with Prof. Pranita P. Sarangi & Dr. Prerna Sharma to isolate monocytes via density gradient centrifugation, inducing targeted differentiation using M-CSF/IL-4, and studying phagocytosis of <i>S. epidermidis</i>.</p>
+      <div className="sg-research-grid">
+        <div className="sg-research-card" data-reveal>
+          <div className="sg-research-header">
+            <span className="sg-research-tag sg-mono">SEED Laboratory · IIT Roorkee</span>
+            <span className="sg-research-status sg-mono">3 Papers in Pipeline (May &apos;26)</span>
+          </div>
+
+          <h3 className="sg-research-title">
+            Hardware-in-the-Loop Digital Twins &amp; Haptic Simulators
+          </h3>
+          <div className="sg-research-advisor sg-mono">
+            Advisor: Prof. Kaushik Parida · Soft Electronics &amp; Energy Devices Lab
+          </div>
+
+          <p className="sg-research-body">
+            Bridging novel flexible piezoelectric smart materials with real-time 3D simulation environments. Built an <i>n × n</i> modular tap-matrix sensor surface capturing pressure profiles and temporal dynamics. Integrated physical robotic arms and surgical cannula penetration sensors streaming high-frequency UART telemetry into Unity and Unreal Engine 5, calibrated against porcine skin resistance tests.
+          </p>
+
+          <div className="sg-research-features">
+            <div className="sg-res-feature">
+              <span className="sg-res-bullet" aria-hidden />
+              <span><b>Tactile Intelligence Twin:</b> Sub-millisecond serial translation from physical piezos into virtual soft bodies.</span>
+            </div>
+            <div className="sg-res-feature">
+              <span className="sg-res-bullet" aria-hidden />
+              <span><b>Surgical Tissue Simulation:</b> UE5 deformation dynamics for tissue penetration training.</span>
+            </div>
+            <div className="sg-res-feature">
+              <span className="sg-res-bullet" aria-hidden />
+              <span><b>Teleoperation Sync:</b> Authoritative closed-loop hardware actuation via microcontroller state.</span>
+            </div>
           </div>
         </div>
 
-        <div className="sg-tl" data-reveal>
-          <span className="sg-tl-dot sg-tl-dot-active" aria-hidden style={{ background: 'oklch(0.88 0.12 74)' }} />
-          <div className="sg-tl-when sg-mono">SEED Lab, IITR</div>
-          <div className="sg-tl-body">
-            <h3>Hardware-in-the-Loop Digital Twins</h3>
-            <p>Under Prof. Kaushik Parida, coupled physical hardware (Arduino, piezo-sensors) with real-time UE5/Unity environments via UART telemetry. Targeting 3 academic publications on Haptic Medical Simulators (May 2026).</p>
+        <div className="sg-research-card" data-reveal>
+          <div className="sg-research-header">
+            <span className="sg-research-tag sg-mono">Cellular Biology Lab</span>
+            <span className="sg-research-status sg-mono">Faculty Supervised</span>
+          </div>
+
+          <h3 className="sg-research-title">
+            In-Vitro Derivation &amp; Functional Assays of Human Macrophages
+          </h3>
+          <div className="sg-research-advisor sg-mono">
+            Collaborators: Prof. Pranita P. Sarangi, Dr. Prerna Sharma, Miss Divya Singh
+          </div>
+
+          <p className="sg-research-body">
+            Conducted in-vitro isolation, differentiation, and characterization of human peripheral blood monocyte–derived macrophages. Isolated primary monocytes using density gradient centrifugation, followed by targeted cytokine-induced differentiation (M-CSF and IL-4). Evaluated morphology, phenotypic expression, and functional phagocytosis of ingested <i>Staphylococcus epidermidis</i> bacteria.
+          </p>
+
+          <div className="sg-research-features">
+            <div className="sg-res-feature">
+              <span className="sg-res-bullet" aria-hidden />
+              <span><b>Monocyte Centrifugation:</b> High-purity separation from whole human peripheral blood.</span>
+            </div>
+            <div className="sg-res-feature">
+              <span className="sg-res-bullet" aria-hidden />
+              <span><b>Cytokine Differentiation:</b> Precise staging and phenotypic morphological tracking under M-CSF/IL-4.</span>
+            </div>
+            <div className="sg-res-feature">
+              <span className="sg-res-bullet" aria-hidden />
+              <span><b>Functional Phagocytosis:</b> Gram staining assays and quantitative flow cytometry evaluation.</span>
+            </div>
           </div>
         </div>
       </div>

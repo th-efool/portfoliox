@@ -20,8 +20,8 @@ const StageHud: React.FC = () => (
           <span className="sg-stage-bar" aria-hidden>
             <span
               className={
-                // 03 is the blue chapter — time dilation, not the disk.
-                i === 2 ? "sg-stage-fill sg-stage-fill-blue" : "sg-stage-fill"
+                // 07 is the blue chapter — time dilation.
+                i === 6 ? "sg-stage-fill sg-stage-fill-blue" : "sg-stage-fill"
               }
               data-fill
             />
