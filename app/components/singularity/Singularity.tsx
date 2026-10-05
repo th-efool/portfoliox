@@ -588,9 +588,9 @@ const Singularity: React.FC = () => {
       <ProjectsSection />
       <TimelineSection />
       <AchievementsSection />
-      <CertificationsSection />
       <SkillsSection />
       <ResearchSection />
+      <CertificationsSection />
       <ContactSection />
       <StageHud />
     </div>

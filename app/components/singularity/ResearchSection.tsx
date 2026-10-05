@@ -1,13 +1,13 @@
 import React from "react";
 
 /**
- * 07 Research Work — SEED Lab Cyber-Physical Twins and In-Vitro Immunology.
+ * 06 Research Work — SEED Lab Cyber-Physical Twins and In-Vitro Immunology.
  */
 const ResearchSection: React.FC = () => (
-  <section className="sg-section sg-research-sec" data-ch id="ch7">
+  <section className="sg-section sg-research-sec" data-ch id="ch6">
     <div className="sg-section-inner">
       <div className="sg-eyebrow sg-mono">
-        07 &nbsp;
+        06 &nbsp;
       </div>
       <h2 className="sg-h2">
         Research <span className="sg-accent">Work</span>

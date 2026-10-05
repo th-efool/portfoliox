@@ -2,13 +2,13 @@ import React from "react";
 import { skillCategories } from "@/app/data";
 
 /**
- * 06 Technical Skills — Verified Technical Arsenal with Brand Logos.
+ * 05 Technical Skills — Verified Technical Arsenal with Brand Logos.
  */
 const SkillsSection: React.FC = () => (
-  <section className="sg-section sg-skills-sec" data-ch id="ch6">
+  <section className="sg-section sg-skills-sec" data-ch id="ch5">
     <div className="sg-section-inner">
       <div className="sg-eyebrow sg-mono">
-        06 &nbsp;
+        05 &nbsp;
       </div>
       <h2 className="sg-h2">
         Technical <span className="sg-accent">Skills</span>

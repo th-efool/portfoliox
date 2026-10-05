@@ -2,13 +2,13 @@ import React from "react";
 import { certifications } from "@/app/data";
 
 /**
- * 05 Courses & Certifications — Verified credentials with issuer logos and direct verification links.
+ * 07 Courses & Certifications — Verified credentials with issuer logos and direct verification links.
  */
 const CertificationsSection: React.FC = () => (
-  <section className="sg-section sg-certs-sec" data-ch id="ch5">
+  <section className="sg-section sg-certs-sec" data-ch id="ch7">
     <div className="sg-section-inner">
       <div className="sg-eyebrow sg-mono">
-        05 &nbsp;
+        07 &nbsp;
       </div>
       <h2 className="sg-h2">
         Courses &amp; <span className="sg-accent">Certifications</span>
