@@ -9,15 +9,13 @@ import { copy, timeline } from "@/app/data";
  * and offset, so the section reads as unwritten until you get there.
  */
 const TimelineSection: React.FC = () => (
-  <section className="sg-ch3 sg-timeline-sec" data-ch data-tsec id="ch7">
+  <section className="sg-ch3 sg-timeline-sec" data-ch data-tsec id="ch3">
     <div className="sg-ch3-inner">
       <div className="sg-eyebrow sg-eyebrow-blue sg-mono">
-        07 &nbsp;
+        03 &nbsp;
       </div>
       <h2 className="sg-h2">
-        Engineering
-        <br />
-        <span className="sg-accent">Leadership &amp; Roles</span>
+        Leadership &amp; <span className="sg-accent">Roles</span>
       </h2>
       <p className="sg-ch3-note">{copy.timelineNote}</p>
 

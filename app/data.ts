@@ -10,26 +10,26 @@ export const RESUME_URL = "";
 
 /** Bottom stage bar. `short` is used on phones, where the cells are ~70px wide. */
 export const chapters = [
-  { id: "ch1", long: "01 Horizon", short: "01 Horizon" },
-  { id: "ch2", long: "02 Disk", short: "02 Disk" },
-  { id: "ch3", long: "03 Moat", short: "03 Moat" },
-  { id: "ch4", long: "04 Research", short: "04 Lab" },
-  { id: "ch5", long: "05 Honors", short: "05 Honors" },
-  { id: "ch6", long: "06 Credentials", short: "06 Certs" },
-  { id: "ch7", long: "07 Dilation", short: "07 Time" },
-  { id: "ch8", long: "08 Singularity", short: "08 Core" },
+  { id: "ch1", long: "01 Horizon", short: "01 Bio" },
+  { id: "ch2", long: "02 Projects", short: "02 Work" },
+  { id: "ch3", long: "03 Experience", short: "03 Roles" },
+  { id: "ch4", long: "04 Skills", short: "04 Skills" },
+  { id: "ch5", long: "05 Research", short: "05 Lab" },
+  { id: "ch6", long: "06 Honors", short: "06 Honors" },
+  { id: "ch7", long: "07 Courses", short: "07 Certs" },
+  { id: "ch8", long: "08 Contact", short: "08 Core" },
 ];
 
 /** Phase readout in the stage bar, indexed by the active chapter. */
 export const phaseNames = [
   "Event horizon",
-  "Accretion disk",
-  "Technical Moat",
-  "Lab Research",
-  "Honors & Podiums",
-  "HPC & Credentials",
-  "Time dilation",
-  "Singularity",
+  "Featured projects",
+  "Leadership & roles",
+  "Technical skills",
+  "Research work",
+  "Honors & achievements",
+  "Courses & certifications",
+  "Get in touch",
 ];
 
 export const copy = {
@@ -168,7 +168,7 @@ export const certifications = [
     issued: "Feb 2026",
     idCode: "3MRUAG61EZDQ",
     featured: true,
-    focus: "Specialization Moat",
+    focus: "Parallel Computing",
     description:
       "Core curriculum in Message Passing Interface (MPI), distributed-memory cluster programming, cache-hierarchy optimization, thread-level concurrency, and hardware-aware performance engineering.",
     skills: ["High Performance Computing (HPC)", "MPI", "Parallel Computing", "Cache Optimization"],

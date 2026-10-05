@@ -586,11 +586,11 @@ const Singularity: React.FC = () => {
       <IntroSection control={holeControl} onStatus={handleStatus} />
       <HeroSection />
       <ProjectsSection />
+      <TimelineSection />
       <SkillsSection />
       <ResearchSection />
       <AchievementsSection />
       <CertificationsSection />
-      <TimelineSection />
       <ContactSection />
       <StageHud />
     </div>

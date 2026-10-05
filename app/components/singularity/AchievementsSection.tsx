@@ -5,16 +5,16 @@ import { achievements } from "@/app/data";
  * 05 Honors & Podiums — Competitive achievements and rankings.
  */
 const AchievementsSection: React.FC = () => (
-  <section className="sg-section sg-achievements-sec" data-ch id="ch5">
+  <section className="sg-section sg-achievements-sec" data-ch id="ch6">
     <div className="sg-section-inner">
       <div className="sg-eyebrow sg-mono">
-        05 &nbsp;
+        06 &nbsp;
       </div>
       <h2 className="sg-h2">
-        Competitive <span className="sg-accent">Podiums</span> &amp; Ranks
+        Honors &amp; <span className="sg-accent">Achievements</span>
       </h2>
       <p className="sg-section-note">
-        High-stakes hackathon finishes, competitive Olympiad percentiles, and national engineering operations.
+        Hackathon podium finishes, Olympiad ranks, and national event coordination.
       </p>
 
       <div className="sg-bento-grid">

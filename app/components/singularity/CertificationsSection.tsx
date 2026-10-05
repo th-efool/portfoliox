@@ -9,16 +9,16 @@ const CertificationsSection: React.FC = () => {
   const others = certifications.filter((c) => !c.featured);
 
   return (
-    <section className="sg-section sg-certs-sec" data-ch id="ch6">
+    <section className="sg-section sg-certs-sec" data-ch id="ch7">
       <div className="sg-section-inner">
         <div className="sg-eyebrow sg-mono">
-          06 &nbsp;
+          07 &nbsp;
         </div>
         <h2 className="sg-h2">
-          HPC &amp; Systems <span className="sg-accent">Specializations</span>
+          Courses &amp; <span className="sg-accent">Certifications</span>
         </h2>
         <p className="sg-section-note">
-          Rigorous academic foundations and industry certifications across high-performance clusters, distributed parallelism, and retrieval engineering.
+          Parallel computing, high-performance computing (MPI), generative AI, and containerization.
         </p>
 
         {featured && (

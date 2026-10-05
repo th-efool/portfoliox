@@ -592,7 +592,8 @@
 
 .sg-ch3 {
   position: relative;
-  padding: 120px 40px 100px;
+  min-height: 85vh;
+  padding: 130px 40px 100px;
 }
 
 .sg-ch3-inner {

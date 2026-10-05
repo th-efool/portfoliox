@@ -4,16 +4,16 @@ import React from "react";
  * 04 Research — SEED Lab Cyber-Physical Twins and In-Vitro Immunology.
  */
 const ResearchSection: React.FC = () => (
-  <section className="sg-section sg-research-sec" data-ch id="ch4">
+  <section className="sg-section sg-research-sec" data-ch id="ch5">
     <div className="sg-section-inner">
       <div className="sg-eyebrow sg-mono">
-        04 &nbsp;
+        05 &nbsp;
       </div>
       <h2 className="sg-h2">
-        Cyber-Physical &amp; Bio <span className="sg-accent">Research</span>
+        Research <span className="sg-accent">Work</span>
       </h2>
       <p className="sg-section-note">
-        Faculty-supervised academic laboratories spanning real-time tactile digital twins and cellular immunology.
+        Academic lab research across haptic digital twins (SEED Lab) and in-vitro immunology (IIT Roorkee).
       </p>
 
       <div className="sg-research-grid">

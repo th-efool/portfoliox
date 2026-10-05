@@ -4,16 +4,16 @@ import React from "react";
  * 03 Technical Moat — Systems Architecture and Core Capabilities.
  */
 const SkillsSection: React.FC = () => (
-  <section className="sg-section sg-skills-sec" data-ch id="ch3">
+  <section className="sg-section sg-skills-sec" data-ch id="ch4">
     <div className="sg-section-inner">
       <div className="sg-eyebrow sg-mono">
-        03 &nbsp;
+        04 &nbsp;
       </div>
       <h2 className="sg-h2">
-        Technical <span className="sg-accent">Architecture</span> &amp; Moat
+        Technical <span className="sg-accent">Skills</span>
       </h2>
       <p className="sg-section-note">
-        Engineered across the hardware-software continuum: from GPU shaders and MPI clusters to deterministic multi-agent state machines.
+        Programming languages, frameworks, graphics engines, and system architecture.
       </p>
 
       <div className="sg-pillars-grid">
