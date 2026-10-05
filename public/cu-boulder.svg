@@ -1,0 +1,7 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="48" height="48" rx="8" fill="#141414"/>
+  <path d="M14 13h10v4.2h-5.6v7.6H24V29H14V13z" fill="#CFB87C"/>
+  <path d="M22 17h12v4.2h-7.6v7.6H34V33H22V17z" fill="#D4AF37"/>
+  <text x="24" y="42" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="7" font-weight="700" fill="#E8E6E1" letter-spacing="0.5">BOULDER</text>
+  <rect x="0.5" y="0.5" width="47" height="47" rx="7.5" stroke="#333333"/>
+</svg>

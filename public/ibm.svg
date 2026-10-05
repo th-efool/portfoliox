@@ -1,0 +1,18 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="48" height="48" rx="8" fill="#0D1117"/>
+  <!-- IBM 8-bar inspired lines -->
+  <g fill="#0F62FE">
+    <rect x="8" y="14" width="6" height="2"/>
+    <rect x="8" y="17" width="6" height="2"/>
+    <rect x="8" y="20" width="6" height="2"/>
+    <rect x="8" y="23" width="6" height="2"/>
+    <rect x="8" y="26" width="6" height="2"/>
+    <rect x="8" y="29" width="6" height="2"/>
+    <rect x="8" y="32" width="6" height="2"/>
+
+    <path d="M17 14h6c2 0 3 1 3 2.5 0 .8-.5 1.5-1.2 1.8 1 .4 1.7 1.2 1.7 2.2 0 1.5-1.2 2.5-3.5 2.5h-6V14zm2 2v2h3.5c.8 0 1.5-.4 1.5-1s-.7-1-1.5-1H19zm0 3.5v2.5h4c.8 0 1.5-.5 1.5-1.2s-.7-1.3-1.5-1.3H19z" transform="scale(1.2) translate(-3, 2)"/>
+    
+    <path d="M29 14h2l2.5 5.5L36 14h2v9h-2v-6.2l-2.4 5.2h-1.2L30 16.8V23h-1v-9z" transform="scale(1.2) translate(-4, 2)"/>
+  </g>
+  <rect x="0.5" y="0.5" width="47" height="47" rx="7.5" stroke="#21262D"/>
+</svg>

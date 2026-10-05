@@ -2,63 +2,53 @@ import React from "react";
 import { certifications } from "@/app/data";
 
 /**
- * 06 Credentials — High-Performance Computing and Infrastructure specializations.
+ * 07 Courses & Certifications — Verified credentials with issuer logos and direct verification links.
  */
-const CertificationsSection: React.FC = () => {
-  const featured = certifications.find((c) => c.featured);
-  const others = certifications.filter((c) => !c.featured);
+const CertificationsSection: React.FC = () => (
+  <section className="sg-section sg-certs-sec" data-ch id="ch7">
+    <div className="sg-section-inner">
+      <div className="sg-eyebrow sg-mono">
+        07 &nbsp;
+      </div>
+      <h2 className="sg-h2">
+        Courses &amp; <span className="sg-accent">Certifications</span>
+      </h2>
+      <p className="sg-section-note">
+        Verified accomplishments across parallel computing, high-performance computing (MPI), generative AI, and system software.
+      </p>
 
-  return (
-    <section className="sg-section sg-certs-sec" data-ch id="ch7">
-      <div className="sg-section-inner">
-        <div className="sg-eyebrow sg-mono">
-          07 &nbsp;
-        </div>
-        <h2 className="sg-h2">
-          Courses &amp; <span className="sg-accent">Certifications</span>
-        </h2>
-        <p className="sg-section-note">
-          Parallel computing, high-performance computing (MPI), generative AI, and containerization.
-        </p>
-
-        {featured && (
-          <div className="sg-featured-cert" data-reveal>
-            <div className="sg-featured-cert-head">
-              <div className="sg-featured-badge sg-mono">{featured.focus}</div>
-              <div className="sg-featured-issuer sg-mono">
-                {featured.issuer} · Issued {featured.issued}
-              </div>
+      <div className="sg-certs-list">
+        {certifications.map((cert) => (
+          <div className="sg-cert-row" data-reveal key={cert.id}>
+            <div className="sg-cert-logo-wrap">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={cert.logo}
+                alt={cert.issuer}
+                className="sg-cert-logo"
+                width={48}
+                height={48}
+              />
             </div>
 
-            <h3 className="sg-featured-cert-title">{featured.title}</h3>
-            <p className="sg-featured-cert-desc">{featured.description}</p>
-
-            <div className="sg-featured-meta">
+            <div className="sg-cert-content">
+              <h3 className="sg-cert-title">{cert.title}</h3>
+              <div className="sg-cert-issuer">{cert.issuer}</div>
+              <div className="sg-cert-date sg-mono">Issued {cert.issued}</div>
               <div className="sg-cert-id sg-mono">
-                Credential ID: <span>{featured.idCode}</span>
+                Credential ID: <span>{cert.idCode}</span>
               </div>
-              <div className="sg-cert-skills sg-mono">
-                {featured.skills.map((s) => (
-                  <span className="sg-skill-pill sg-skill-pill-gold" key={s}>
-                    {s}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-        )}
 
-        <div className="sg-certs-grid">
-          {others.map((cert) => (
-            <div className="sg-cert-card" data-reveal key={cert.id}>
-              <div className="sg-cert-top sg-mono">
-                <span className="sg-cert-issuer">{cert.issuer}</span>
-                <span className="sg-cert-date">{cert.issued}</span>
-              </div>
-              <h4 className="sg-cert-title">{cert.title}</h4>
-              <p className="sg-cert-desc">{cert.description}</p>
-              <div className="sg-cert-footer">
-                <span className="sg-cert-id sg-mono">ID: {cert.idCode}</span>
+              <div className="sg-cert-actions">
+                <a
+                  href={cert.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="sg-cert-btn sg-mono"
+                >
+                  Show credential <span className="sg-cert-btn-arrow">&#8599;</span>
+                </a>
+
                 <div className="sg-cert-skills sg-mono">
                   {cert.skills.map((s) => (
                     <span className="sg-skill-pill" key={s}>
@@ -68,11 +58,11 @@ const CertificationsSection: React.FC = () => {
                 </div>
               </div>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default CertificationsSection;

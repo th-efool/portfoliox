@@ -1,0 +1,8 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="48" height="48" rx="8" fill="#0D1117"/>
+  <!-- Linux Foundation Square Brackets -->
+  <path d="M12 12H26V18H18V36H12V12Z" fill="#0082C8"/>
+  <path d="M36 36H22V30H30V12H36V36Z" fill="#003B5C"/>
+  <path d="M22 30H30V36H22V30Z" fill="#00A3E0"/>
+  <rect x="0.5" y="0.5" width="47" height="47" rx="7.5" stroke="#21262D"/>
+</svg>
