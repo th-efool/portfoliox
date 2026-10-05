@@ -8,6 +8,8 @@ import { Analytics } from "@vercel/analytics/next"
 import "./globals.css";
 import "./singularity.css";
 
+// Space Grotesk sets the whole page; JetBrains Mono is the telemetry face —
+// the stage bar, chapter eyebrows and every readout in the HUD.
 const grotesk = Space_Grotesk({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
@@ -31,6 +33,21 @@ export const metadata: Metadata = {
     ],
     apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
   },
+  openGraph: {
+    title: "Agrim's Portfolio",
+    description:
+      "Welcome to my portfolio inconveniently located in the singularity of Gargantua's black hole!",
+    url: "https://github.com/th-efool",
+    images: [
+      {
+        url: "https://github.com/th-efool/p2.png",
+        width: 600,
+        height: 600,
+        alt: "Portfolio Preview Image",
+      },
+    ],
+    siteName: "Agrim's Portfolio",
+  },
 };
 
 export default function RootLayout({
@@ -39,6 +56,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    // suppressHydrationWarning: some browser extensions inject attributes onto
+    // <html>/<body> (e.g. data-__host_prefix_..._-filters-channel) before React
+    // hydrates, which otherwise trips a hydration mismatch. This only tolerates
+    // attribute diffs on these root elements — it does not affect the app UI.
     <html lang="en" suppressHydrationWarning>
       <body
         className={`${grotesk.variable} ${jetbrains.variable}`}
@@ -47,6 +68,7 @@ export default function RootLayout({
         {children}
         <SpeedInsights />
         <Analytics />
+        {/* Only load analytics in production */}
         {process.env.NODE_ENV === "production" && (
           <Suspense fallback={null}>
             <GoogleAnalytics />
