@@ -347,33 +347,132 @@ export const skillCategories: SkillCategory[] = [
   },
 ];
 
-/** Chapter 03. Roles and builds, most recent first. */
-export const timeline = [
+export interface TimelineSubRole {
+  title: string;
+  period: string;
+  bullets: string[];
+}
+
+export interface TimelineItem {
+  org: string;
+  logo: string;
+  url?: string;
+  type: string;
+  location: string;
+  when: string;
+  roles: TimelineSubRole[];
+  skills: string[];
+}
+
+/** Chapter 03. Leadership & Roles, most recent first. */
+export const timeline: TimelineItem[] = [
   {
-    when: "Mar 2026 — Present",
-    title: "Project Lead — Tinkering Lab, IIT Roorkee",
-    body: "Leading engineering cohorts across rapid prototyping, embedded systems, and spatial software. Architecting real-time multi-agent moderation pipelines (Detector → Validator → Analyzer → Action Engine) and a GIS rendering plugin for Unity and Unreal Engine.",
-  },
-  {
-    when: "Sept 2025 — Present",
-    title: "Research Collaborator — SEED Lab, IIT Roorkee",
-    body: "Developing real-time virtual representations of novel smart materials and sensor-instrumented medical tools under Prof. Kaushik Parida. Co-authoring 3 academic papers on digital twin teleoperation and haptic medical simulators.",
-  },
-  {
+    org: "Tinkering Lab, IIT Roorkee",
+    logo: "/tinkering-lab.svg",
+    url: "https://www.linkedin.com/company/18374685/",
+    type: "Full-time · 1 yr 9 mos · On-site",
+    location: "Roorkee, Uttarakhand, India",
     when: "Feb 2025 — Present",
-    title: "Software & Game Systems Developer — ArIES",
-    body: "Architected a modular quantitative research engine executing deterministic pipelines (data → indicators → strategies → signals → rendering). Engineered 'UE5-TheHollowPact'—a third-person multiplayer action demo in UE5 with client-side prediction and server reconciliation.",
+    roles: [
+      {
+        title: "Project Lead",
+        period: "Mar 2026 — Present · 8 mos",
+        bullets: [
+          "Leading multi-disciplinary engineering cohorts across rapid prototyping, embedded systems, and spatial computing.",
+          "Architecting real-time multi-agent moderation pipelines (Detector → Validator → Analyzer → Action Engine) and VR behavioral feedback engines.",
+        ],
+      },
+      {
+        title: "XR Developer",
+        period: "Feb 2025 — Feb 2026 · 1 yr 1 mo",
+        bullets: [
+          "Designing a GIS rendering plugin module for Unity/Unreal to visualize terrain elevation, satellite imagery, and geospatial datasets from multiple sources.",
+          "Developed a VR zombie-shooter experience in Unity, including custom interaction systems and gameplay flow.",
+          "Implemented an AR prototype for animating virtual characters in physical space.",
+        ],
+      },
+    ],
+    skills: ["Project Leadership", "Unity", "Unreal Engine", "GIS", "Spatial Computing", "XR Prototyping"],
   },
   {
+    org: "Soft Electronics And Energy Devices Laboratory (SEED Lab)",
+    logo: "/seed-lab.svg",
+    type: "Research · 1 yr 2 mos · Hybrid",
+    location: "Saharanpur, Uttar Pradesh, India",
+    when: "Sep 2025 — Present",
+    roles: [
+      {
+        title: "Research Collaborator (Digital Twinning)",
+        period: "Sep 2025 — Present · 1 yr 2 mos",
+        bullets: [
+          "Modular piezo-sensor tap-interface system: an expandable n×n soft-input grid capturing tap-intensity patterns for structured signal encoding and robotic control within a Digital Twin environment, including Morse-style patterned interactions.",
+          "Digital Twin of a robotic arm in Unity, driven by real-time sensor streams using Arduino-based signal encoding and serial communication.",
+          "Unreal Engine medical-procedure simulator integrating pig-skin cannulation data through piezo-based force and deformation sensing.",
+          "Co-authoring three academic papers based on these three tactile intelligence and simulator projects.",
+        ],
+      },
+    ],
+    skills: ["Digital Twinning", "Haptics", "Unity", "Unreal Engine 5", "Arduino", "Serial Telemetry"],
+  },
+  {
+    org: "ArIES - Artificial Intelligence and Electronics Section",
+    logo: "/aries.svg",
+    type: "Full-time · 1 yr 9 mos · On-site",
+    location: "Roorkee, Uttarakhand, India",
+    when: "Feb 2025 — Present",
+    roles: [
+      {
+        title: "Software Developer",
+        period: "Feb 2025 — Present · 1 yr 9 mos",
+        bullets: [
+          "Developing a Kuldhara-themed Android horror game with multiplayer co-op, planned for a December 2025 release.",
+          "Developed a VR fitness/boxing prototype in Unity for the Srishti Technical Exhibition.",
+          "Built a post-apocalyptic multiplayer third-person shooter demo in Unreal Engine (UE5-TheHollowPact) with client prediction and server reconciliation.",
+          "Architected a modular quantitative research engine executing deterministic pipelines (data → indicators → strategies → signals → rendering).",
+        ],
+      },
+    ],
+    skills: ["Multiplayer Networking", "Unreal Engine 5", "Unity", "Game Systems", "Quant Infra"],
+  },
+  {
+    org: "Grades Buddy",
+    logo: "/grades-buddy.svg",
+    type: "Part-time · 4 mos · Remote",
+    location: "Remote",
     when: "Oct 2025 — Jan 2026",
-    title: "Technical Consultant & Developer — Grades Buddy",
-    body: "Engineered a synthetic-data generation pipeline using Unity Perception and YOLOv8 to synthesize edge-case frames for object detection. Audited client rendering pipelines to slash draw calls for VR frame budgets.",
+    roles: [
+      {
+        title: "Technical Consultant",
+        period: "Oct 2025 — Jan 2026 · 4 mos",
+        bullets: [
+          "Engineered a full-scale synthetic-data augmentation pipeline using Unity Perception and YOLOv8, delivering reproducible workflows and measurable performance gains on minority object classes in real-world datasets.",
+          "Engineered an interactive VR forest-walk simulation with dynamic fauna and performance-optimized vegetation, while guiding optimization and rendering improvements.",
+          "Provided mentorship on scene optimization techniques, draw-call reductions, and rendering pipeline improvements, elevating project outcomes.",
+        ],
+      },
+    ],
+    skills: ["Unity Perception", "YOLOv8", "Synthetic Data", "Performance Profiling", "VR Optimization"],
   },
   {
-    when: "2024 — 2028 / Expected 2029",
-    title: "B.Tech Computer Science — IIT Roorkee",
-    body: "Pre-final Year Student. Appointed student mentor for freshman engineering courses (TMI102) teaching Augmented Reality interior design; active volunteer for WASH Cell (NSS); Student Coordinator for Smart India Hackathon Grand Finale.",
-  }
+    org: "Indian Institute of Technology Roorkee (IIT Roorkee)",
+    logo: "/iitr.svg",
+    type: "Pre-final Year B.Tech · Campus Leadership",
+    location: "Roorkee, Uttarakhand, India",
+    when: "2024 — Expected 2029",
+    roles: [
+      {
+        title: "Student Mentor & Grand Finale Coordinator",
+        period: "2024 — Present",
+        bullets: [
+          "Appointed Student Mentor for freshman engineering course TMI102, teaching Augmented Reality interior design applications.",
+          "Appointed Student Coordinator for the national Smart India Hackathon (SIH) 2025 Grand Finale at IIT Roorkee.",
+          "Conducted faculty-supervised in-vitro immunology lab research on generating and characterizing human peripheral blood monocyte–derived macrophages under Prof. Pranita P. Sarangi.",
+          "Active Volunteer for WASH Cell, National Service Scheme (NSS IIT Roorkee).",
+        ],
+      },
+    ],
+    skills: ["IIT Roorkee", "TMI102 Mentorship", "SIH Coordination", "Immunology Research", "NSS"],
+  },
 ];
 
 export const socialMedia = [

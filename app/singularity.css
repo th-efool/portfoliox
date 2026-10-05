@@ -659,9 +659,9 @@
 .sg-tl {
   position: relative;
   display: grid;
-  grid-template-columns: 110px 1fr;
+  grid-template-columns: 125px 1fr;
   gap: 24px;
-  padding: 0 0 34px;
+  padding: 0 0 40px;
   opacity: 0.28;
   transform: translateY(10px);
   transition: opacity 0.5s ease, transform 0.6s ease;
@@ -680,33 +680,171 @@
 }
 
 .sg-tl-when {
-  font-size: 9.5px;
-  letter-spacing: 0.16em;
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--sg-gold);
-  padding-top: 5px;
+  padding-top: 14px;
 }
 
 .sg-tl-body {
   display: flex;
   flex-direction: column;
-  gap: 5px;
 }
 
-.sg-tl-body h3 {
+.sg-tl-card {
+  background: var(--sg-card);
+  border: 1px solid var(--sg-hairline);
+  border-radius: 16px;
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.sg-tl-card:hover {
+  border-color: rgba(255, 255, 255, 0.28);
+  box-shadow: 0 16px 36px -16px rgba(0, 0, 0, 0.7);
+}
+
+.sg-tl-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.sg-tl-logo-wrap {
+  width: 50px;
+  height: 50px;
+  flex: none;
+  border-radius: 12px;
+  background: #0d1117;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: grid;
+  place-items: center;
+  padding: 5px;
+  overflow: hidden;
+}
+
+.sg-tl-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.sg-tl-header-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sg-tl-top-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.sg-tl-org {
   margin: 0;
-  font-size: 18.5px;
+  font-size: 18px;
   font-weight: 600;
-  letter-spacing: -0.018em;
+  letter-spacing: -0.015em;
+  color: #ffffff;
   transition: color 0.3s ease;
 }
 
-.sg-tl-body p {
+.sg-tl-org-link {
+  color: inherit;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s ease;
+}
+
+.sg-tl-org-link:hover {
+  color: var(--sg-gold-bright);
+}
+
+.sg-tl-arrow {
+  font-size: 13px;
+  color: var(--sg-gold);
+}
+
+.sg-tl-meta {
+  font-size: 12px;
+  color: rgba(232, 230, 225, 0.55);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.sg-tl-sep {
+  color: rgba(255, 255, 255, 0.25);
+  font-size: 10px;
+}
+
+.sg-tl-roles-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.sg-tl-role {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sg-tl-role-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.sg-tl-role-title {
   margin: 0;
-  font-size: 14px;
-  line-height: 1.6;
-  color: rgba(232, 230, 225, 0.6);
-  max-width: 66ch;
+  font-size: 15.5px;
+  font-weight: 600;
+  color: var(--sg-gold-bright);
+  letter-spacing: -0.01em;
+}
+
+.sg-tl-role-period {
+  font-size: 11.5px;
+  color: rgba(232, 230, 225, 0.5);
+}
+
+.sg-tl-bullets {
+  margin: 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sg-tl-bullets li {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: rgba(232, 230, 225, 0.7);
+}
+
+.sg-tl-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 /* --- 04 Singularity (contact) --------------------------------------------- */
@@ -1631,8 +1769,8 @@
 
   .sg-tl {
     grid-template-columns: 1fr;
-    gap: 4px;
-    padding-bottom: 26px;
+    gap: 10px;
+    padding-bottom: 28px;
   }
 
   .sg-tl-dot {
@@ -1644,20 +1782,29 @@
 
   .sg-tl-when {
     padding-top: 0;
-    font-size: 8.5px;
-    letter-spacing: 0.18em;
+    font-size: 9px;
+    letter-spacing: 0.16em;
   }
 
-  .sg-tl-body {
-    gap: 4px;
+  .sg-tl-card {
+    padding: 16px 14px;
+    gap: 12px;
   }
 
-  .sg-tl-body h3 {
-    font-size: 15.5px;
-    letter-spacing: -0.015em;
+  .sg-tl-logo-wrap {
+    width: 42px;
+    height: 42px;
   }
 
-  .sg-tl-body p {
+  .sg-tl-org {
+    font-size: 16px;
+  }
+
+  .sg-tl-role-title {
+    font-size: 14px;
+  }
+
+  .sg-tl-bullets li {
     font-size: 12.5px;
   }
 
