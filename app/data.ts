@@ -13,10 +13,10 @@ export const chapters = [
   { id: "ch1", long: "01 Horizon", short: "01 Bio" },
   { id: "ch2", long: "02 Projects", short: "02 Work" },
   { id: "ch3", long: "03 Experience", short: "03 Roles" },
-  { id: "ch4", long: "04 Research", short: "04 Lab" },
-  { id: "ch5", long: "05 Honors", short: "05 Honors" },
-  { id: "ch6", long: "06 Courses", short: "06 Certs" },
-  { id: "ch7", long: "07 Skills", short: "07 Skills" },
+  { id: "ch4", long: "04 Honors", short: "04 Honors" },
+  { id: "ch5", long: "05 Courses", short: "05 Certs" },
+  { id: "ch6", long: "06 Skills", short: "06 Skills" },
+  { id: "ch7", long: "07 Research", short: "07 Lab" },
   { id: "ch8", long: "08 Contact", short: "08 Core" },
 ];
 
@@ -25,10 +25,10 @@ export const phaseNames = [
   "Event horizon",
   "Featured projects",
   "Leadership & roles",
-  "Research work",
   "Honors & achievements",
   "Courses & certifications",
   "Technical skills",
+  "Research work",
   "Get in touch",
 ];
 
