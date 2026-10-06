@@ -14,7 +14,7 @@ const IntroSection: React.FC<{
   control: React.MutableRefObject<BlackHoleControl | null>;
   onStatus: (ready: boolean) => void;
 }> = ({ control, onStatus }) => (
-  <section className="sg-intro" data-intro>
+  <section className="sg-intro" data-intro role="banner" aria-label="Singularity Intro">
     <div className="sg-intro-pin">
       <canvas className="sg-intro-canvas" data-bh aria-hidden />
 
@@ -24,8 +24,12 @@ const IntroSection: React.FC<{
 
       <div className="sg-intro-vignette" aria-hidden />
 
-      <div className="sg-intro-titles">
-        <h1 className="sg-title sg-title-top" data-text="AGRIM&#8217;S">
+      <div className="sg-intro-titles" aria-label="Agrim Singh Portfolio">
+        <h1
+          className="sg-title sg-title-top"
+          data-text="AGRIM&#8217;S"
+          aria-label="Agrim Singh Portfolio"
+        >
           AGRIM&#8217;S
         </h1>
         <div className="sg-title-bottom-wrap">

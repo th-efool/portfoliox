@@ -35,7 +35,7 @@ const TimelineSection: React.FC = () => (
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src={item.logo}
-                        alt={item.org}
+                        alt={`${item.org} logo`}
                         className="sg-tl-logo"
                         loading="lazy"
                       />
@@ -49,6 +49,7 @@ const TimelineSection: React.FC = () => (
                               target="_blank"
                               rel="noopener noreferrer"
                               className="sg-tl-org-link"
+                              aria-label={`${item.org} official website`}
                             >
                               {item.org} <span className="sg-tl-arrow">&#8599;</span>
                             </a>

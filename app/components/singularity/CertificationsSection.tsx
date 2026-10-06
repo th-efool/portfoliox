@@ -45,6 +45,8 @@ const CertificationsSection: React.FC = () => (
                   target="_blank"
                   rel="noopener noreferrer"
                   className="sg-cert-btn sg-mono"
+                  aria-label={"Verify credential: " + cert.title}
+                  title={"Verify credential: " + cert.title}
                 >
                   Show credential <span className="sg-cert-btn-arrow">&#8599;</span>
                 </a>

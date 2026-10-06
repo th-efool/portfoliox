@@ -579,19 +579,26 @@ const Singularity: React.FC = () => {
 
   return (
     <div className="sg-root" ref={rootRef}>
+      {/* Visually hidden skip link for accessibility indexers and screen readers */}
+      <a href="#main-content" className="sr-only focus:not-sr-only">
+        Skip to content
+      </a>
+
       {/* Fixed, and outside the sticky intro, so it keeps covering the screen
           through the scroll jump that hands off to the site. */}
       <div className="sg-blackout" data-blackout aria-hidden />
 
       <IntroSection control={holeControl} onStatus={handleStatus} />
-      <HeroSection />
-      <ProjectsSection />
-      <TimelineSection />
-      <AchievementsSection />
-      <SkillsSection />
-      <ResearchSection />
-      <CertificationsSection />
-      <ContactSection />
+      <main id="main-content" role="main">
+        <HeroSection />
+        <ProjectsSection />
+        <TimelineSection />
+        <AchievementsSection />
+        <SkillsSection />
+        <ResearchSection />
+        <CertificationsSection />
+        <ContactSection />
+      </main>
       <StageHud />
     </div>
   );

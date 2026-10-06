@@ -35,7 +35,7 @@ const SkillsSection: React.FC = () => (
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={skill.logo}
-                      alt={skill.name}
+                      alt={`${skill.name} logo`}
                       className="sg-tech-icon"
                       loading="lazy"
                     />

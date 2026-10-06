@@ -38,7 +38,10 @@ const HeroSection: React.FC = () => (
 
         <div className="sg-hero-grid">
           <div className="sg-hero-main">
-            <h1 className="sg-hero-h1">
+            <h1
+              className="sg-hero-h1"
+              aria-label="Agrim Singh, Emerging Software Engineer and Systems Architect at IIT Roorkee"
+            >
               <Words text="I&#8217;m Agrim." />{" "}
               <span className="sg-accent">
                 <Words text="Emerging Software Engineer." />

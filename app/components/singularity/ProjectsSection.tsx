@@ -43,6 +43,8 @@ const ProjectsSection: React.FC = () => (
             href={p.link}
             target="_blank"
             rel="noopener noreferrer"
+            title={`${p.title} - View project on GitHub`}
+            aria-label={`${p.title} - View project on GitHub`}
             onClick={() => trackProjectView(p.title)}
           >
             <div className="sg-card-media">
@@ -50,7 +52,7 @@ const ProjectsSection: React.FC = () => (
               <Image src="/bg.png" alt="" fill sizes="640px" aria-hidden />
               <Image
                 src={p.img}
-                alt={p.title}
+                alt={`${p.title} preview interface`}
                 fill
                 sizes="(max-width: 767px) 100vw, 640px"
               />
@@ -72,7 +74,11 @@ const ProjectsSection: React.FC = () => (
                       {/* Stack badges are tiny fixed-size marks — no point
                           round-tripping them through the image optimizer. */}
                       {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src={icon} alt="" aria-hidden />
+                      <img
+                        src={icon}
+                        alt={icon.replace(".svg", "").replace("/", "") + " technology icon"}
+                        title={icon.replace(".svg", "").replace("/", "")}
+                      />
                     </span>
                   ))}
                 </div>
